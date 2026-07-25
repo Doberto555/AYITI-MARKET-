@@ -19,9 +19,16 @@ const app = express();
 // (egzanp: FRONTEND_URL=https://ayiti-market.com)
 // Si li pa konfigire, nou kite '*' tanporèman pou pa bloke devlopman lokal —
 // men sa pa dwe rete konsa nan pwodiksyon reyèl.
-const allowedOrigin = process.env.FRONTEND_URL || '*';
-if (allowedOrigin === '*') {
+const baseOrigin = process.env.FRONTEND_URL || '*';
+let allowedOrigin = baseOrigin;
+if (baseOrigin === '*') {
   console.warn('⚠️  FRONTEND_URL pa konfigire — CORS louvri pou tout domèn. Mete FRONTEND_URL nan Render.');
+} else {
+  // Aksepte tou de vèsyon domèn nan (ak san "www"), pou CORS pa bloke
+  // moun ki rive sou nenpòt varyant nan lyen sit la.
+  const noWww = baseOrigin.replace('https://www.', 'https://');
+  const withWww = baseOrigin.replace('https://', 'https://www.');
+  allowedOrigin = [...new Set([noWww, withWww])];
 }
 app.use(cors({ origin: allowedOrigin }));
 // NÒT: limit default Express la se 100kb — sa te twò piti pou imaj (base64
