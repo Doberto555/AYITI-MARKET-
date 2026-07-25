@@ -18,6 +18,7 @@
       --bg: var(--krem); --teks: var(--lank); --kart: var(--blan);
     }
     *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{overflow-x:hidden;max-width:100%;}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--teks);min-height:100vh;}
 
     /* ── NAV ── */
@@ -51,7 +52,7 @@
     .sidebar-section{padding:16px 20px 6px;font-size:0.72rem;font-weight:700;color:var(--lank-soft);letter-spacing:.8px;text-transform:uppercase;}
 
     /* ── MAIN ── */
-    .main{flex:1;padding:28px;overflow-x:hidden;}
+    .main{flex:1;min-width:0;padding:28px;overflow-x:hidden;}
     .page-title{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:6px;}
     .page-sub{color:var(--lank-soft);font-size:0.88rem;margin-bottom:24px;}
 
