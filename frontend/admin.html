@@ -152,7 +152,9 @@
       .sidebar.open{transform:translateX(0);}
       .main{padding:16px;}
       .stats-grid{grid-template-columns:repeat(2,1fr);}
-      th:nth-child(n+4),td:nth-child(n+4){display:none;}
+      th:nth-child(n+4):not(:nth-last-child(-n+2)),td:nth-child(n+4):not(:nth-last-child(-n+2)){display:none;}
+      .table-wrap{overflow-x:auto;}
+      table{min-width:480px;}
     }
     .hamburger-btn{display:none;}
     #sidebarOverlay{display:none;}
