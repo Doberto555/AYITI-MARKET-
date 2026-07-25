@@ -153,8 +153,10 @@
       .main{padding:16px;}
       .stats-grid{grid-template-columns:repeat(2,1fr);}
       th:nth-child(n+4):not(:nth-last-child(-n+2)),td:nth-child(n+4):not(:nth-last-child(-n+2)){display:none;}
-      .table-wrap{overflow-x:auto;}
+      .dash-recent-table th:last-child,.dash-recent-table td:last-child{display:none;}
+      .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
       table{min-width:480px;}
+      table th:first-child,table td:first-child{position:sticky;left:0;background:var(--kart);z-index:2;}
     }
     .hamburger-btn{display:none;}
     #sidebarOverlay{display:none;}
@@ -490,7 +492,7 @@
     // 10 dènye anons
     const recent = listings.slice(0, 10);
     document.getElementById('recentListings').innerHTML = recent.length ? `
-      <table>
+      <table class="dash-recent-table">
         <thead><tr><th>Foto</th><th>Titre</th><th>Pri</th><th>Estati</th><th>Dat</th></tr></thead>
         <tbody>${recent.map(l => listingRow(l)).join('')}</tbody>
       </table>` : '<div class="loading">Pa gen anons.</div>';
