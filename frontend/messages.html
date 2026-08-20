@@ -250,7 +250,7 @@
   }</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3671082075819991"
      crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="ayiti-market-v15-production.css?v=15">
+  <link rel="stylesheet" href="ayiti-market-v15-production.css?v=15.2">
 </head>
 <body class="messages-page">
 
@@ -757,5 +757,28 @@
     });
   });
 </script>
+
+<script id="v15_2ViewportFix">
+(function () {
+  function syncAyitiChatViewport() {
+    var vv = window.visualViewport;
+    var h = vv && vv.height ? vv.height : window.innerHeight;
+    document.documentElement.style.setProperty('--am-chat-vh', Math.round(h) + 'px');
+    if (document.body && document.body.classList.contains('show-chat')) {
+      var box = document.getElementById('chatMsgs');
+      if (box) requestAnimationFrame(function () {
+        box.scrollTop = box.scrollHeight;
+      });
+    }
+  }
+  syncAyitiChatViewport();
+  window.addEventListener('resize', syncAyitiChatViewport, {passive:true});
+  window.addEventListener('orientationchange', syncAyitiChatViewport, {passive:true});
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncAyitiChatViewport, {passive:true});
+  }
+})();
+</script>
+
 </body>
 </html>
