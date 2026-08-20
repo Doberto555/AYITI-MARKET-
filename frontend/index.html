@@ -1949,6 +1949,7 @@
 <link rel="stylesheet" href="pro-v4.css?v=4">
 <link rel="stylesheet" href="pro-v5-mobile.css?v=5">
 <link rel="stylesheet" href="pro-v7-reference.css?v=7">
+  <link rel="stylesheet" href="pro-v8-corrected.css?v=8.0">
 </head>
 <body>
 
@@ -2059,7 +2060,7 @@
           </button>
         </div>
       </div>
-      <a href="#" class="btn btn-primary">+ Pibliye Anons</a>
+      <a href="#" class="btn btn-primary" data-role="publish-btn">+ Pibliye Anons</a>
     </div>
 
     <button class="nav-toggle" id="navToggle" aria-label="Louvri meni">&#9776;</button>
@@ -2104,25 +2105,18 @@
 <div class="mobile-drawer" id="mobileDrawer">
   <div class="drawer-brand"><img src="icons/icon-192.png" alt="Ayiti Market"><div><strong>AYITI <span>MARKET</span></strong><small>Achte. Vann. Toupatou Ayiti.</small></div></div>
   <button class="close-x" id="closeDrawer" aria-label="Fèmen meni">&times;</button>
-  <a href="#kategori">Kategori</a>
-  <a href="#anons">Anons</a>
-  <a href="#kijan">Kijan li mache</a>
-  <a href="#faq">Kesyon</a>
-  <div class="theme-toggle-row">
-    <span>Mòd Nwa</span>
-    <button class="theme-toggle" id="themeToggleMobile" aria-label="Chanje mòd koulè">
-      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-    </button>
-  </div>
-  <a class="btn btn-primary" href="#">+ Pibliye Anons</a>
-  <a href="enskripsyon.html" class="btn btn-primary" data-role="register-link-mobile" style="margin-top:10px;background:var(--lank)">Kreye Kont</a>
-  <a href="account.html" class="btn btn-ghost" data-role="account-link-mobile" style="display:none;margin-top:10px">Mon Kont</a>
-  <a href="messages.html" class="btn btn-ghost" data-role="messages-link-mobile" style="display:none;margin-top:10px;position:relative">
-    Mesaj
-    <span id="unreadBadgeMobile" style="display:none;position:absolute;top:-2px;right:6px;width:9px;height:9px;border-radius:50%;background:var(--wouj)"></span>
-  </a>
-  <button class="btn btn-ghost" data-role="logout-mobile" onclick="handleLogout()" style="display:none;margin-top:10px;color:var(--wouj);border-color:var(--wouj);width:100%">Dekonekte</button>
+  <a href="index.html"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span>Kay</a>
+  <a href="#anons"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span>Tout Anons</a>
+  <a href="messages.html" data-role="messages-link-mobile" style="display:none;position:relative"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Mesaj<span id="unreadBadgeMobile" style="display:none;margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--wouj)"></span></a>
+  <a href="account.html" data-role="account-link-mobile" style="display:none"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>Mon Kont</a>
+  <div class="drawer-section-label">Plis</div>
+  <a href="#kategori"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>Kategori</a>
+  <a href="#kijan"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.8 1.7c-.9.9-2.3 1.3-2.3 3"/><path d="M12 18h.01"/></svg></span>Kijan li mache</a>
+  <a href="#faq"><span class="drawer-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span>Èd & Sipò</a>
+  <div class="theme-toggle-row"><span>Mòd Nwa</span><button class="theme-toggle" id="themeToggleMobile" aria-label="Chanje mòd koulè"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></button></div>
+  <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('closeDrawer').click();setTimeout(()=>document.querySelector('[data-role=\'publish-btn\']')?.click()||document.querySelector('.nav-cta .btn-primary')?.click(),150)">+ Pibliye Anons</a>
+  <a href="enskripsyon.html" class="btn btn-primary" data-role="register-link-mobile" style="margin-top:8px">Kreye Kont</a>
+  <button class="btn btn-ghost" data-role="logout-mobile" onclick="handleLogout()" style="display:none;color:var(--wouj);border-color:var(--wouj);width:100%">Dekonekte</button>
 </div>
 
 <!-- ============ AUTH MODAL ============ -->
@@ -2208,73 +2202,18 @@
         <div class="publish-step"><span class="step-num">2</span><span>Detay</span></div>
         <div class="publish-step"><span class="step-num">3</span><span>Imaj</span></div>
       </div>
-      <div class="photo-zone" onclick="document.getElementById('photoInput').click()">
-        <p>Klike pou ajoute foto</p>
-        <span>JPG, PNG · Jiska 5 foto · Maks 5MB chak</span>
-        <input type="file" id="photoInput" accept="image/*" multiple style="display:none" onchange="handlePhotoUpload(this)">
+      <div class="publish-fields-first">
+        <div class="field"><label>Kategori *</label><select id="pubCategory"><option value="">Chwazi yon kategori</option><option>Elektwonik</option><option>Vwati & Moto</option><option>Imobilye</option><option>Mòd & Rad</option><option>Sèvis</option><option>Manje & Bwason</option><option>Atizay</option><option>Lòt</option></select></div>
+        <div class="field"><label>Tit anons *</label><input type="text" id="pubTitle" placeholder="Eg: Toyota Corolla 2018"></div>
+        <div class="price-row"><div class="field"><label>Pri (HTG) *</label><input type="number" placeholder="Eg: 250000" id="priceInput" oninput="toggleNegociab()"></div><label class="price-negociab"><input type="checkbox" id="negociabCheck"> Pri Negosyab</label></div>
+        <div class="field"><label>Deskripsyon *</label><textarea id="pubDesc" placeholder="Ekri yon deskripsyon detaye sou pwodwi oswa sèvis la..."></textarea></div>
+        <div class="field"><label>Kote *</label><select id="pubLocation"><option value="">Chwazi zòn ou</option><optgroup label="Lwès"><option>Pòtoprens</option><option>Petyonvil</option><option>Delma</option><option>Tabarre</option><option>Kafou</option></optgroup><optgroup label="Nò"><option>Okap</option></optgroup><optgroup label="Atibonit"><option>Gonayiv</option></optgroup><optgroup label="Sid-Es"><option>Jakmèl</option></optgroup></select></div>
+        <div class="field"><label>Nimewo WhatsApp *</label><div style="display:flex;align-items:center;border:1px solid #d6dde8;border-radius:8px;overflow:hidden;background:#fff"><span style="padding:0 11px;height:44px;display:flex;align-items:center;border-right:1px solid #e3e8ef;font:700 .8rem Inter,Arial,sans-serif;color:#475467">🇭🇹 +509</span><input type="tel" id="pubPhone" placeholder="Eg: 34 12 34 56" maxlength="12" required inputmode="numeric" pattern="[0-9\-]{8,9}" style="flex:1;border:0!important;height:44px;padding:0 11px;outline:0" oninput="this.value=this.value.replace(/[^0-9\-]/g,'')"></div></div>
       </div>
-      <div id="photoCountRow" style="display:none;align-items:center;justify-content:space-between;margin-bottom:10px;">
-        <span id="photoCount" style="font-size:0.8rem;font-weight:700;color:var(--lank-soft);"></span>
-        <span id="photoWarning" style="font-size:0.78rem;color:var(--wouj-dark);display:none;"></span>
-      </div>
-      <div id="photoPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;"></div>
-
-      <div class="field">
-        <label>Tit anons lan</label>
-        <input type="text" id="pubTitle" placeholder="ex. iPhone 13 Pro 128GB — Bon eta">
-      </div>
-      <div class="field">
-        <label>Kategori</label>
-        <select id="pubCategory">
-          <option value="">— Chwazi yon kategori —</option>
-          <option>Elektwonik</option>
-          <option>Vwati & Moto</option>
-          <option>Imobilye</option>
-          <option>Mòd & Rad</option>
-          <option>Sèvis</option>
-          <option>Manje & Bwason</option>
-          <option>Atizay</option>
-          <option>Lòt</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Deskripsyon</label>
-        <textarea id="pubDesc" placeholder="Dekri pwodwi oswa sèvis ou a — eta, karakteristik, rezon pou vann…"></textarea>
-      </div>
-      <div class="price-row">
-        <div class="field">
-          <label>Pri (HTG)</label>
-          <input type="number" placeholder="ex. 15000" id="priceInput" oninput="toggleNegociab()">
-        </div>
-        <label class="price-negociab">
-          <input type="checkbox" id="negociabCheck"> Pri Negosyab
-        </label>
-      </div>
-      <div class="field">
-        <label>Lokasyon</label>
-        <select id="pubLocation">
-          <option value="">— Chwazi zòn ou —</option>
-          <optgroup label="Lwès"><option>Pòtoprens</option><option>Petyonvil</option><option>Delma</option><option>Tabarre</option><option>Kafou</option></optgroup>
-          <optgroup label="Nò"><option>Okap</option></optgroup>
-          <optgroup label="Atibonit"><option>Gonayiv</option></optgroup>
-          <optgroup label="Sid-Es"><option>Jakmèl</option></optgroup>
-        </select>
-      </div>
-      <div class="field">
-        <label>Nimewo WhatsApp / Telefòn <span style="color:var(--wouj)">*</span></label>
-        <div style="display:flex;align-items:center;gap:0;border:1.5px solid var(--liy);border-radius:10px;overflow:hidden;background:var(--bg);">
-          <span style="padding:0 12px;font-size:0.9rem;color:var(--lank-soft);border-right:1.5px solid var(--liy);height:48px;display:flex;align-items:center;white-space:nowrap;background:var(--bg-soft);">+509</span>
-          <input type="tel" id="pubPhone" placeholder="ex. 3712-3456" maxlength="12" required
-            inputmode="numeric" pattern="[0-9\-]{8,9}"
-            style="flex:1;border:none;background:transparent;padding:0 12px;height:48px;font-size:0.95rem;color:var(--lank);outline:none;"
-            oninput="this.value=this.value.replace(/[^0-9\-]/g,'')">
-        </div>
-        <small style="color:var(--lank-soft);font-size:0.75rem;margin-top:4px;display:block;">Achtè yo ap kontakte ou dirèkteman sou WhatsApp</small>
-      </div>
-      <div class="form-error" id="publishError" style="display:none;color:var(--wouj);font-size:0.85rem;margin-bottom:10px;"></div>
-      <button class="btn btn-primary btn-full" id="publishSubmitBtn" onclick="handlePublish()">Pibliye Anons Gratis →</button>
-    </div>
-  </div>
+      <div class="publish-photo-block"><div class="photo-zone" onclick="document.getElementById('photoInput').click()"><p>Ajoute foto anons lan</p><span>JPG, PNG · Jiska 5 foto · Maks 5MB chak</span><input type="file" id="photoInput" accept="image/*" multiple style="display:none" onchange="handlePhotoUpload(this)"></div><div id="photoCountRow" style="display:none;align-items:center;justify-content:space-between;margin-bottom:10px"><span id="photoCount" style="font-size:.8rem;font-weight:700"></span><span id="photoWarning" style="font-size:.78rem;color:var(--wouj);display:none"></span></div><div id="photoPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px"></div></div>
+      <div class="form-error" id="publishError" style="display:none;color:var(--wouj);font-size:.85rem;margin-bottom:10px"></div>
+      <button class="btn btn-primary btn-full" id="publishSubmitBtn" onclick="handlePublish()">Pibliye Anons →</button>
+    </div>  </div>
 </div>
 
 <!-- ============ LISTING DETAIL PANEL ============ -->
