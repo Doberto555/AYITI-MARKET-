@@ -1,0 +1,214 @@
+/* AYITI MARKET — V5 mobile UI correction
+   Focus: mobile drawer, listing details, publish modal visibility */
+
+/* ---------- Mobile navigation drawer ---------- */
+.mobile-drawer{
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:18px 20px calc(24px + env(safe-area-inset-bottom,0px));
+  background:var(--krem);
+}
+.mobile-drawer .close-x{
+  width:42px;height:42px;min-height:42px;
+  border:1px solid var(--liy);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  align-self:flex-end;margin:0 0 16px;
+  background:var(--blan);color:var(--lank);
+  font-family:var(--body);font-size:1.65rem;font-weight:400;line-height:1;
+  box-shadow:0 6px 18px rgba(20,24,31,.06);
+}
+.mobile-drawer > a:not(.btn){
+  font-family:var(--body);
+  font-size:1.05rem;
+  font-weight:750;
+  letter-spacing:-.01em;
+  padding:15px 4px;
+  border-bottom:1px solid var(--liy);
+  color:var(--lank);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mobile-drawer > a:not(.btn)::after{
+  content:'›';font-size:1.3rem;font-weight:400;color:var(--lank-soft);opacity:.65;
+}
+.mobile-drawer .theme-toggle-row{
+  min-height:62px;padding:10px 4px;
+  border-bottom:1px solid var(--liy);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--body);font-size:1rem;font-weight:750;
+}
+.mobile-drawer .theme-toggle{width:44px;height:44px;border:1px solid var(--liy);border-radius:13px;background:var(--blan)}
+.mobile-drawer .btn{
+  margin-top:12px;
+  min-height:52px;
+  border-radius:14px;
+  font-family:var(--body);
+  font-size:1rem;
+  font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  border-width:1.5px;
+}
+.mobile-drawer .btn-primary{box-shadow:0 10px 24px rgba(185,28,60,.16)}
+.mobile-drawer [data-role="logout-mobile"]{background:transparent}
+
+/* ---------- Listing detail: cleaner mobile hierarchy ---------- */
+.detail-sheet{background:var(--krem)}
+.detail-body{padding:24px 24px 128px}
+.detail-price{
+  font-family:var(--body);
+  font-size:clamp(1.75rem,7vw,2.25rem);
+  letter-spacing:-.025em;
+  font-weight:850;
+  line-height:1.05;
+  margin-bottom:12px;
+}
+.detail-title{
+  font-family:var(--body);
+  font-size:clamp(1.35rem,5vw,1.75rem);
+  font-weight:850;
+  letter-spacing:-.025em;
+  line-height:1.16;
+  margin-bottom:12px;
+}
+.detail-loc{font-size:.94rem;margin-bottom:20px;gap:8px}
+.detail-meta{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:18px;
+}
+.detail-meta-item{
+  min-width:0;
+  padding:14px 15px;
+  border-radius:14px;
+  background:var(--blan);
+  border:1px solid var(--liy);
+  box-shadow:0 4px 14px rgba(20,24,31,.035);
+}
+.detail-meta-item:nth-child(3){grid-column:1/-1}
+.detail-meta-item .dm-label{font-family:var(--body);font-size:.7rem;letter-spacing:.075em;margin-bottom:7px}
+.detail-meta-item .dm-val{font-family:var(--body);font-size:.95rem;font-weight:800}
+.detail-divider{margin:24px 0}
+.detail-section-title{font-family:var(--body);font-size:.76rem;letter-spacing:.08em;margin-bottom:12px}
+.detail-desc{font-family:var(--body);font-size:.98rem;line-height:1.7;color:var(--lank-soft)}
+.detail-actions{
+  z-index:8;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+  gap:9px;
+  background:color-mix(in srgb,var(--krem) 94%,transparent);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 -8px 30px rgba(20,24,31,.07);
+}
+.detail-actions .btn{min-height:50px;border-radius:14px;font-family:var(--body);font-size:.95rem;font-weight:800;white-space:nowrap}
+.detail-actions .btn-share{width:50px;height:50px;min-height:50px;border-radius:14px}
+.detail-back,.detail-fav-btn{
+  width:44px;height:44px;min-height:44px;
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:0 5px 16px rgba(20,24,31,.12);
+}
+.detail-tag{border-radius:10px;padding:7px 12px;font-family:var(--body);font-size:.68rem;box-shadow:0 5px 16px rgba(20,24,31,.12)}
+
+/* ---------- Publish modal: no hidden bottom fields ---------- */
+#publishModal{padding:12px;align-items:center}
+#publishModal .modal{
+  width:min(100%,520px);
+  max-width:520px;
+  height:min(760px,calc(100dvh - 24px));
+  max-height:calc(100dvh - 24px);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border-radius:22px;
+}
+#publishModal .modal-head{
+  flex:0 0 auto;
+  padding:20px 22px 16px;
+  margin:0;
+  border-bottom:1px solid var(--liy);
+  background:var(--krem);
+  position:relative;
+  z-index:2;
+}
+#publishModal .modal-head h2{font-family:var(--body);font-size:1.25rem;font-weight:850;letter-spacing:-.02em}
+#publishModal .modal-body{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding:18px 22px calc(24px + env(safe-area-inset-bottom,0px));
+  scrollbar-gutter:stable;
+}
+#publishModal .photo-zone{
+  padding:22px 16px;
+  border-radius:15px;
+  background:var(--blan);
+  border:1.5px dashed var(--liy);
+  margin-bottom:18px;
+}
+#publishModal .photo-zone p{font-size:.92rem;color:var(--lank);font-weight:800;margin-bottom:4px}
+#publishModal .field{margin-bottom:15px}
+#publishModal .field label{font-family:var(--body);font-size:.76rem;letter-spacing:.055em;margin-bottom:7px}
+#publishModal .field input,#publishModal .field select,#publishModal .field textarea{
+  min-height:50px;border-radius:13px;padding:12px 14px;background:var(--blan);
+}
+#publishModal .field textarea{min-height:104px}
+#publishModal .price-row{align-items:stretch;gap:10px;margin-bottom:15px}
+#publishModal .price-row .field{margin-bottom:0}
+#publishModal .price-negociab{
+  min-height:50px;
+  align-self:flex-end;
+  padding:0 12px;
+  border:1.5px solid var(--liy);
+  border-radius:13px;
+  background:var(--blan);
+  white-space:normal;
+  line-height:1.2;
+}
+#publishModal #publishSubmitBtn{
+  min-height:52px;
+  margin-top:8px;
+  border-radius:14px;
+  font-size:.98rem;
+  font-weight:850;
+  box-shadow:0 10px 24px rgba(185,28,60,.16);
+}
+
+@media(max-width:600px){
+  #publishModal{padding:0;align-items:stretch}
+  #publishModal .modal{
+    width:100%;max-width:none;
+    height:100dvh;max-height:100dvh;
+    border-radius:0;
+    align-self:stretch;
+  }
+  #publishModal .modal-head{
+    padding:calc(12px + env(safe-area-inset-top,0px)) 16px 12px;
+  }
+  #publishModal .modal-body{
+    padding:16px 16px calc(28px + env(safe-area-inset-bottom,0px));
+  }
+  #publishModal .price-row{display:grid;grid-template-columns:1fr}
+  #publishModal .price-negociab{align-self:auto;justify-content:flex-start;padding:0 14px}
+
+  .detail-hero{height:min(46vh,310px)}
+  .detail-body{padding:22px 20px 128px}
+  .detail-actions{padding-left:12px;padding-right:12px}
+  .detail-actions .btn{padding-left:13px;padding-right:13px}
+  .detail-actions #d-btn-wa{flex:1.15}
+  .detail-actions #d-btn-msg{flex:1}
+}
+
+@media(max-width:380px){
+  .detail-actions .btn{font-size:.88rem;padding-left:10px;padding-right:10px}
+  .detail-actions .btn-share{width:46px}
+  .mobile-drawer{padding-left:16px;padding-right:16px}
+}
+
+:root[data-theme="dark"] .mobile-drawer .close-x,
+:root[data-theme="dark"] .mobile-drawer .theme-toggle,
+:root[data-theme="dark"] #publishModal .photo-zone,
+:root[data-theme="dark"] #publishModal .field input,
+:root[data-theme="dark"] #publishModal .field select,
+:root[data-theme="dark"] #publishModal .field textarea,
+:root[data-theme="dark"] #publishModal .price-negociab{background:#1f2531;border-color:#343d4d}
