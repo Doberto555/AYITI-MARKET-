@@ -1345,3 +1345,333 @@ body.messages-page .chat-send-btn {
   }
 }
 
+/* ============================================================
+   V15.5 — MOBILE HOME UI FIX
+   Fixes header visibility, hero spacing, trust strip,
+   bottom-nav clearance and mobile clipping.
+   ============================================================ */
+@media (max-width:1000px) {
+  body:not(.messages-page) {
+    padding-bottom:calc(78px + env(safe-area-inset-bottom));
+    overflow-x:hidden;
+  }
+
+  /* Mobile header must remain visible and compact. */
+  body:not(.messages-page) .nav {
+    position:sticky;
+    top:0;
+    z-index:1100;
+    min-height:64px;
+    height:auto;
+    padding:0;
+    background:rgba(255,255,255,.98);
+    border-bottom:1px solid var(--am-border);
+    box-shadow:0 3px 16px rgba(15,23,42,.06);
+    backdrop-filter:blur(12px);
+  }
+  body:not(.messages-page) .nav .wrap {
+    width:100%;
+    min-height:64px;
+    margin:0;
+    padding:8px 13px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  body:not(.messages-page) .nav .logo {
+    min-width:0;
+    max-width:calc(100% - 54px);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  body:not(.messages-page) .nav .logo img {
+    width:38px;
+    height:38px;
+    flex:0 0 38px;
+    border-radius:10px;
+    object-fit:cover;
+  }
+  body:not(.messages-page) .nav .logo-text {
+    min-width:0;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size:.92rem;
+    line-height:1.05;
+    font-weight:900;
+  }
+  body:not(.messages-page) .nav .logo-text .tagline,
+  body:not(.messages-page) .nav .tagline,
+  body:not(.messages-page) .nav .logo-sub,
+  body:not(.messages-page) .nav .brand-subtitle {
+    display:none;
+  }
+
+  /* Desktop controls do not reserve blank space on mobile. */
+  body:not(.messages-page) .nav .search-box,
+  body:not(.messages-page) .nav .search,
+  body:not(.messages-page) .nav .nav-search,
+  body:not(.messages-page) .nav .search-wrap,
+  body:not(.messages-page) .nav .nav-links,
+  body:not(.messages-page) .nav .nav-user,
+  body:not(.messages-page) .nav .nav-cta {
+    display:none;
+  }
+  body:not(.messages-page) .hamburger,
+  body:not(.messages-page) .menu-btn,
+  body:not(.messages-page) .mobile-menu-btn {
+    display:grid;
+    place-items:center;
+    flex:0 0 42px;
+    width:42px;
+    height:42px;
+    min-width:42px;
+    min-height:42px;
+    margin-left:auto;
+    padding:0;
+    border:1px solid #d9dee7;
+    border-radius:12px;
+    background:#fff;
+    color:var(--am-navy);
+  }
+
+  /* Categories: one-line horizontal scroller, never a tall blank band. */
+  body:not(.messages-page) .catbar {
+    min-height:58px;
+    height:auto;
+    padding:7px 0;
+    background:#fffaf1;
+    border-bottom:1px solid #eee5d6;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  body:not(.messages-page) .catbar::-webkit-scrollbar { display:none; }
+  body:not(.messages-page) .catbar .wrap,
+  body:not(.messages-page) .catbar-inner {
+    width:max-content;
+    min-width:100%;
+    max-width:none;
+    margin:0;
+    padding:0 10px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:7px;
+    flex-wrap:nowrap;
+  }
+  body:not(.messages-page) .cat-pill {
+    flex:0 0 auto;
+    min-height:42px;
+    padding:0 13px;
+    border-radius:999px;
+    font-size:.72rem;
+    white-space:nowrap;
+  }
+
+  /* Hero: remove desktop reserved height and make all content flow naturally. */
+  body:not(.messages-page) .hero {
+    min-height:0;
+    height:auto;
+    padding:34px 0 28px;
+    overflow:hidden;
+  }
+  body:not(.messages-page) .hero .wrap,
+  body:not(.messages-page) .hero-inner,
+  body:not(.messages-page) .hero-grid {
+    width:100%;
+    max-width:none;
+    min-height:0;
+    margin:0 auto;
+    padding-left:15px;
+    padding-right:15px;
+    display:block;
+  }
+  body:not(.messages-page) .hero-copy,
+  body:not(.messages-page) .hero-content {
+    width:100%;
+    max-width:620px;
+    margin:0;
+  }
+  body:not(.messages-page) .hero h1,
+  body:not(.messages-page) .hero-title {
+    max-width:100%;
+    margin-top:16px;
+    font-size:clamp(2rem,10vw,3.2rem);
+    line-height:1.02;
+    letter-spacing:-.045em;
+  }
+  body:not(.messages-page) .hero p,
+  body:not(.messages-page) .hero-desc {
+    max-width:620px;
+    font-size:.94rem;
+    line-height:1.55;
+  }
+  body:not(.messages-page) .hero-actions {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    width:100%;
+    max-width:500px;
+  }
+  body:not(.messages-page) .hero-actions .btn {
+    width:100%;
+    min-width:0;
+    min-height:47px;
+  }
+  body:not(.messages-page) .hero-stats,
+  body:not(.messages-page) .stats-row {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+    width:100%;
+    max-width:500px;
+    margin-top:24px;
+  }
+  body:not(.messages-page) .hero-stats > *,
+  body:not(.messages-page) .stats-row > * {
+    min-width:0;
+  }
+
+  /* Desktop floating mock listings caused empty/offscreen space on phones.
+     Hide them and let the real marketplace cards below take over. */
+  body:not(.messages-page) .hero-visual,
+  body:not(.messages-page) .hero-cards,
+  body:not(.messages-page) .floating-cards {
+    display:none;
+  }
+
+  /* Ticker becomes a clean, finite-height horizontal rail. */
+  body:not(.messages-page) .ticker,
+  body:not(.messages-page) .marquee,
+  body:not(.messages-page) .ticker-wrap {
+    min-height:44px;
+    height:44px;
+    overflow:hidden;
+  }
+
+  /* Trust/value strip from the video: stack into readable cards. */
+  body:not(.messages-page) .trust-strip,
+  body:not(.messages-page) .trust-grid,
+  body:not(.messages-page) .benefits,
+  body:not(.messages-page) .features-strip {
+    height:auto;
+    min-height:0;
+  }
+  body:not(.messages-page) .trust-strip .wrap,
+  body:not(.messages-page) .trust-grid,
+  body:not(.messages-page) .benefits-grid,
+  body:not(.messages-page) .features-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    width:100%;
+    padding:0;
+  }
+  body:not(.messages-page) .trust-item,
+  body:not(.messages-page) .benefit-item,
+  body:not(.messages-page) .feature-item {
+    min-width:0;
+    min-height:104px;
+    padding:16px 14px;
+    align-items:flex-start;
+    border-bottom:1px solid var(--am-border);
+  }
+
+  /* Generic section safety. */
+  body:not(.messages-page) section {
+    max-width:100%;
+  }
+  body:not(.messages-page) .section,
+  body:not(.messages-page) .recent-section,
+  body:not(.messages-page) .categories-section {
+    min-height:0;
+    height:auto;
+  }
+
+  /* Fixed bottom navigation clearance. */
+  body:not(.messages-page) main,
+  body:not(.messages-page) .page-content {
+    padding-bottom:20px;
+  }
+  body:not(.messages-page) .bottom-nav {
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:1250;
+    width:100%;
+    min-height:66px;
+    height:calc(66px + env(safe-area-inset-bottom));
+    padding:5px 4px env(safe-area-inset-bottom);
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    align-items:center;
+    background:rgba(255,255,255,.98);
+    border-top:1px solid var(--am-border);
+    box-shadow:0 -7px 22px rgba(15,23,42,.09);
+  }
+  body:not(.messages-page) .bottom-nav .bn-item {
+    width:100%;
+    min-width:0;
+    min-height:54px;
+    margin:0;
+    padding:5px 1px 3px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    overflow:hidden;
+    font-size:.62rem;
+    line-height:1;
+    white-space:nowrap;
+  }
+  body:not(.messages-page) .bottom-nav .bn-item svg {
+    width:21px;
+    height:21px;
+    flex:0 0 21px;
+  }
+
+  /* Modals/drawers must not disappear behind nav or keyboard. */
+  body:not(.messages-page) #publishModal .modal-body {
+    padding-bottom:calc(34px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width:560px) {
+  body:not(.messages-page) .hero {
+    padding-top:26px;
+  }
+  body:not(.messages-page) .hero h1,
+  body:not(.messages-page) .hero-title {
+    font-size:clamp(2rem,11.5vw,2.85rem);
+  }
+  body:not(.messages-page) .hero-actions {
+    grid-template-columns:1fr;
+  }
+  body:not(.messages-page) .trust-strip .wrap,
+  body:not(.messages-page) .trust-grid,
+  body:not(.messages-page) .benefits-grid,
+  body:not(.messages-page) .features-grid {
+    grid-template-columns:1fr;
+  }
+  body:not(.messages-page) .trust-item,
+  body:not(.messages-page) .benefit-item,
+  body:not(.messages-page) .feature-item {
+    min-height:82px;
+  }
+}
+
+@media (max-width:360px) {
+  body:not(.messages-page) .nav .logo-text { font-size:.82rem; }
+  body:not(.messages-page) .hero-stats,
+  body:not(.messages-page) .stats-row { grid-template-columns:1fr; }
+}
+
