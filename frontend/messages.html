@@ -252,6 +252,7 @@
      crossorigin="anonymous"></script>
   <link rel="stylesheet" href="ayiti-market-final.css?v=9">
   <link rel="stylesheet" href="ayiti-market-v10.css?v=10">
+  <link rel="stylesheet" href="ayiti-market-v11-mobile-polish.css?v=11">
 </head>
 <body class="messages-page">
 
@@ -261,6 +262,12 @@
     <a href="index.html" class="btn btn-ghost">← Tounen nan Mache a</a>
   </div>
 </header>
+<div class="messages-toolbar" aria-label="Chèche konvèsasyon">
+  <label class="messages-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+    <input id="conversationSearch" type="search" placeholder="Chèche nan mesaj yo..." autocomplete="off">
+  </label>
+</div>
 
 <main>
   <div id="guardedOut" style="display:none" class="empty-box">
@@ -743,6 +750,14 @@
   window.addEventListener("resize",syncViewport,{passive:true});
   if(window.visualViewport){window.visualViewport.addEventListener("resize",syncViewport,{passive:true});}
 })();
+
+  // V11: filtre konvèsasyon sou mobil/desktòp san re-fetch
+  document.getElementById('conversationSearch')?.addEventListener('input', (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('#convList .conv-item').forEach(item => {
+      item.style.display = !q || item.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
 </script>
 </body>
 </html>
