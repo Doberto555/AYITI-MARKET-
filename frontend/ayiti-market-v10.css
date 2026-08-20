@@ -1,0 +1,147 @@
+/* AYITI MARKET V10 — focused UI stabilization and professional polish */
+:root{
+  --v10-navy:#071a3d;--v10-navy-2:#0b2a5b;--v10-red:#d71936;--v10-bg:#f5f7fb;
+  --v10-card:#fff;--v10-text:#111827;--v10-muted:#667085;--v10-line:#e4e9f0;
+  --v10-radius:14px;--v10-shadow:0 10px 30px rgba(7,26,61,.08);
+}
+html,body{max-width:100%;overflow-x:hidden}
+body{font-family:Inter,Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important}
+h1,h2,h3,h4,h5,h6,.logo,.brand,.page-title,.seller-name{font-family:Inter,Manrope,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;font-style:normal!important}
+button,input,select,textarea{font-family:inherit!important}
+img{display:block;max-width:100%}
+
+/* Brand/header consistency */
+body>header .am-brand-logo,.am-brand-logo{width:44px;height:44px;object-fit:cover;border-radius:10px;flex:0 0 auto}
+body>header .am-brand-name,.am-brand-name{font-weight:900;letter-spacing:-.03em}
+body>header .am-brand-market,.am-brand-market{color:#ff3348}
+body>header{position:relative;z-index:120}
+body>header .nav{min-width:0}
+body>header .nav-search{min-width:0}
+body>header .nav-search input{min-width:0}
+
+/* General surfaces */
+.card,.acc-card,.stat-kard,.stats-section,.table-wrap,.seller-hero,.review-card,.rating-summary,.reviews-list,.chat-layout,.modal,.detail-sheet{
+  border-color:var(--v10-line)!important;
+}
+.btn{border-radius:10px!important;font-weight:750!important}
+.btn-primary{background:var(--v10-red)!important;color:#fff!important}
+
+/* MOBILE DRAWER — compact, app-like and scrollable */
+.mobile-drawer{width:min(88vw,380px)!important;max-width:380px!important;height:100dvh!important;max-height:100dvh!important;overflow-y:auto!important;overflow-x:hidden!important;padding:18px 18px calc(28px + env(safe-area-inset-bottom,0px))!important}
+.mobile-drawer .drawer-brand{position:sticky;top:-18px;z-index:2;margin:-18px -18px 10px;padding:18px;background:inherit;border-bottom:1px solid var(--v10-line)}
+.mobile-drawer>a:not(.btn){font-size:.98rem!important;line-height:1.25!important;padding:14px 2px!important;font-weight:750!important}
+.mobile-drawer .btn{min-height:48px!important;margin-top:10px!important;font-size:.94rem!important}
+.mobile-drawer .close-x{position:absolute!important;right:14px;top:14px;margin:0!important;width:40px!important;height:40px!important}
+
+/* PUBLISH — guarantee every field remains reachable */
+#publishModal{overflow:hidden!important}
+#publishModal .modal{display:flex!important;flex-direction:column!important;overflow:hidden!important}
+#publishModal .modal-head{flex:0 0 auto!important}
+#publishModal .modal-body{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;scroll-padding-bottom:96px!important}
+#publishModal .modal-body>*{max-width:100%}
+#publishModal .field,#publishModal .price-row,#publishModal .publish-photo-block{min-width:0!important}
+#publishModal .field input,#publishModal .field select,#publishModal .field textarea{max-width:100%!important;box-sizing:border-box!important}
+#publishModal .price-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+#publishModal .price-negociab{width:100%!important;box-sizing:border-box!important;min-height:44px!important}
+#publishModal #publishSubmitBtn{position:relative!important;bottom:auto!important;margin-bottom:max(8px,env(safe-area-inset-bottom,0px))!important}
+#publishModal .photo-zone{cursor:pointer}
+
+/* DETAIL — no content hidden behind sticky actions */
+.detail-sheet{display:flex!important;flex-direction:column!important;height:100dvh!important;max-height:100dvh!important;overflow:hidden!important}
+.detail-hero{flex:0 0 auto!important}
+.detail-body{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;padding-bottom:28px!important;scroll-padding-bottom:24px!important}
+.detail-actions{position:relative!important;bottom:auto!important;flex:0 0 auto!important}
+.detail-meta{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.detail-meta-item{min-width:0!important}
+.detail-desc{overflow-wrap:anywhere}
+.owner-actions,.detail-sold-banner,.reviews-section,.similar-section{flex:0 0 auto}
+
+/* MESSAGES — fixes last messages hidden under composer/keyboard */
+body.messages-page,body:has(.chat-layout){min-height:100dvh}
+.chat-layout{min-height:0!important;height:100%!important;overflow:hidden!important}
+.chat-area{min-height:0!important;overflow:hidden!important}
+.chat-msgs{flex:1 1 0!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;scroll-padding-bottom:28px!important;padding-bottom:28px!important}
+.chat-input-row{position:relative!important;bottom:auto!important;flex:0 0 auto!important;background:var(--v10-card)!important;padding-bottom:max(10px,env(safe-area-inset-bottom,0px))!important}
+.chat-input-row input{min-width:0!important}
+.bubble{max-width:min(82%,620px)!important;overflow-wrap:anywhere!important;word-break:break-word}
+.bubble img,.bubble video{max-width:100%!important;height:auto!important;border-radius:10px}
+
+/* ACCOUNT */
+.acc-head-inner,.acc-tabs,.acc-panel,.stats-grid,.stats-cards{min-width:0}
+.acc-tabs-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none}
+.acc-tabs-wrap::-webkit-scrollbar{display:none}
+.acc-tabs{width:max-content;min-width:100%;padding-bottom:2px}
+.acc-tab{white-space:nowrap!important}
+.stats-cards{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important}
+.stat-kard{min-width:0!important;overflow:hidden}
+.stat-kard-val{overflow-wrap:anywhere}
+.chart-wrap{max-width:100%;overflow-x:auto}
+
+/* ADMIN */
+.admin-wrap{min-width:0!important}
+.main{min-width:0!important;overflow-x:hidden!important}
+.table-wrap{max-width:100%!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+.table-wrap table{min-width:720px!important;width:100%!important}
+.table-header{gap:10px!important;flex-wrap:wrap!important}
+.table-search{min-width:min(100%,240px)!important;max-width:100%!important}
+.stats-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))!important}
+
+/* SELLER */
+.seller-hero-inner{min-width:0}
+.seller-info{min-width:0}
+.seller-name{overflow-wrap:anywhere}
+.seller-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}
+.stat-box{min-width:0!important}
+.listings-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))!important}
+
+/* Dark mode surfaces */
+:root[data-theme="dark"]{--v10-card:#111827;--v10-bg:#0d1117;--v10-text:#f3f4f6;--v10-muted:#aeb7c5;--v10-line:#2b3545}
+:root[data-theme="dark"] .chat-input-row{background:#111827!important}
+
+@media(max-width:900px){
+  .stats-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .seller-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .admin-wrap{display:block!important}
+  .main{padding:18px 14px!important}
+}
+
+@media(max-width:760px){
+  body.show-chat{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
+  body.show-chat main{height:100dvh!important;min-height:0!important;overflow:hidden!important}
+  body.show-chat .chat-layout{height:100%!important;min-height:0!important}
+  body.show-chat .chat-area{height:100%!important;min-height:0!important;display:flex!important}
+  body.show-chat .chat-msgs{padding:14px 12px 30px!important;scroll-padding-bottom:30px!important}
+  body.show-chat .chat-input-row{padding:10px 10px max(10px,env(safe-area-inset-bottom,0px))!important}
+  .chat-header{min-height:62px!important;padding:10px 12px!important}
+  .bubble{max-width:88%!important}
+
+  .detail-sheet{width:100%!important;max-width:100%!important}
+  .detail-meta{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .detail-meta-item:nth-child(3){grid-column:1/-1!important}
+  .detail-actions{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) 46px!important;padding:10px 10px max(10px,env(safe-area-inset-bottom,0px))!important}
+
+  #publishModal{padding:0!important;align-items:stretch!important}
+  #publishModal .modal{width:100%!important;max-width:none!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important}
+  #publishModal .modal-head{padding:calc(12px + env(safe-area-inset-top,0px)) 14px 12px!important}
+  #publishModal .modal-body{padding:14px 14px calc(28px + env(safe-area-inset-bottom,0px))!important}
+
+  .seller-hero{border-radius:0!important}
+  .listings-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+}
+
+@media(max-width:480px){
+  .stats-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .seller-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .listings-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .detail-actions .btn{font-size:.72rem!important;padding-inline:7px!important}
+  .detail-actions .btn-share{width:46px!important}
+}
+
+@media(max-width:360px){
+  .listings-grid{grid-template-columns:1fr!important}
+  .detail-actions{grid-template-columns:1fr 1fr 42px!important;gap:6px!important}
+  .detail-actions .btn{font-size:.68rem!important}
+}
+@media(max-width:760px){
+ body.show-chat,body.show-chat main{height:var(--v10-vh,100dvh)!important;min-height:var(--v10-vh,100dvh)!important}
+}

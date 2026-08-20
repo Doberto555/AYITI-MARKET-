@@ -251,8 +251,9 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3671082075819991"
      crossorigin="anonymous"></script>
   <link rel="stylesheet" href="ayiti-market-final.css?v=9">
+  <link rel="stylesheet" href="ayiti-market-v10.css?v=10">
 </head>
-<body>
+<body class="messages-page">
 
 <header>
   <div class="nav">
@@ -726,6 +727,22 @@
     const raw     = atob(base64);
     return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
   }
+</script>
+<script id="v10ViewportSync">
+(function(){
+  function syncViewport(){
+    var vv=window.visualViewport;
+    var h=vv?vv.height:window.innerHeight;
+    document.documentElement.style.setProperty("--v10-vh",h+"px");
+    if(document.body.classList.contains("show-chat")){
+      var m=document.getElementById("chatMsgs");
+      if(m) requestAnimationFrame(function(){m.scrollTop=m.scrollHeight;});
+    }
+  }
+  syncViewport();
+  window.addEventListener("resize",syncViewport,{passive:true});
+  if(window.visualViewport){window.visualViewport.addEventListener("resize",syncViewport,{passive:true});}
+})();
 </script>
 </body>
 </html>
