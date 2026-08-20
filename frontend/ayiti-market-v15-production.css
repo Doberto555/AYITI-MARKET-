@@ -1675,3 +1675,378 @@ body.messages-page .chat-send-btn {
   body:not(.messages-page) .stats-row { grid-template-columns:1fr; }
 }
 
+/* ============================================================
+   V16 — MATCH REFERENCE MOCKUP
+   ============================================================ */
+
+:root{
+  --v16-navy:#0b2d63;
+  --v16-red:#ef1739;
+  --v16-orange:#f38b2d;
+  --v16-bg:#fbfaf7;
+  --v16-card:#ffffff;
+  --v16-border:#e8e5de;
+  --v16-muted:#667085;
+  --v16-shadow:0 8px 28px rgba(15,23,42,.08);
+}
+
+/* HEADER */
+body:not(.messages-page) .nav{
+  background:#fff;
+  border-bottom:1px solid var(--v16-border);
+  box-shadow:0 3px 14px rgba(15,23,42,.045);
+}
+body:not(.messages-page) .nav .wrap{
+  max-width:1440px;
+}
+body:not(.messages-page) .nav .logo{
+  flex:0 0 auto;
+  min-width:max-content;
+  max-width:none;
+  overflow:visible;
+}
+body:not(.messages-page) .nav .logo img{
+  width:42px;
+  height:42px;
+  border-radius:11px;
+}
+body:not(.messages-page) .nav .logo-text{
+  display:flex;
+  align-items:center;
+  min-width:max-content;
+  overflow:visible;
+  text-overflow:clip;
+  font-size:1.05rem;
+  font-weight:900;
+  letter-spacing:-.03em;
+}
+body:not(.messages-page) .nav .logo-text::after,
+body:not(.messages-page) .nav .tagline,
+body:not(.messages-page) .nav .logo-sub,
+body:not(.messages-page) .nav .brand-subtitle{
+  display:none;
+}
+
+/* Force only AYITI MARKET in the logo text */
+body:not(.messages-page) .nav .logo-text{
+  font-size:0;
+}
+body:not(.messages-page) .nav .logo-text::before{
+  content:"AYITI";
+  font-size:1.05rem;
+  color:var(--v16-navy);
+  font-weight:900;
+}
+body:not(.messages-page) .nav .logo-text::after{
+  content:"MARKET";
+  display:inline;
+  font-size:1.05rem;
+  color:var(--v16-red);
+  font-weight:900;
+}
+
+/* Search */
+body:not(.messages-page) .nav .search-box,
+body:not(.messages-page) .nav .search,
+body:not(.messages-page) .nav .nav-search,
+body:not(.messages-page) .nav .search-wrap{
+  max-width:360px;
+  min-width:260px;
+}
+body:not(.messages-page) .nav .search-box input,
+body:not(.messages-page) .nav .search input,
+body:not(.messages-page) .nav .nav-search input,
+body:not(.messages-page) .nav .search-wrap input{
+  height:44px;
+  background:#fff;
+  border:1px solid #dedede;
+  box-shadow:0 2px 8px rgba(15,23,42,.025);
+}
+
+/* Header links/actions */
+body:not(.messages-page) .nav-links > a{
+  color:#111827;
+  font-weight:750;
+}
+body:not(.messages-page) .nav .theme-toggle,
+body:not(.messages-page) .nav .user-menu-btn,
+body:not(.messages-page) .nav .nav-user{
+  border-radius:13px;
+}
+body:not(.messages-page) .nav .btn-primary,
+body:not(.messages-page) .nav .nav-cta{
+  background:var(--v16-red);
+  border-color:var(--v16-red);
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(239,23,57,.18);
+}
+
+/* CATEGORY STRIP */
+body:not(.messages-page) .catbar{
+  background:#fff;
+  border-bottom:0;
+  padding:14px 0 8px;
+}
+body:not(.messages-page) .catbar .wrap,
+body:not(.messages-page) .catbar-inner{
+  width:min(1440px,calc(100% - 36px));
+  min-width:0;
+  max-width:1440px;
+  margin:0 auto;
+  padding:0;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+body:not(.messages-page) .cat-pill{
+  min-height:46px;
+  border:1px solid #e8e8e8;
+  background:#fff;
+  color:#1f2937;
+  box-shadow:0 3px 10px rgba(15,23,42,.035);
+  border-radius:13px;
+}
+body:not(.messages-page) .cat-pill.active,
+body:not(.messages-page) .cat-pill:first-child{
+  background:#fff1f3;
+  border-color:#ffd7de;
+  color:var(--v16-red);
+}
+
+/* PAGE BACKGROUND */
+body:not(.messages-page){
+  background:var(--v16-bg);
+}
+
+/* HERO */
+body:not(.messages-page) .hero{
+  background:
+    radial-gradient(circle at 86% 42%,rgba(239,23,57,.025),transparent 28%),
+    linear-gradient(180deg,#fff 0%,#fcfbf8 100%);
+  padding:50px 0 28px;
+}
+body:not(.messages-page) .hero .wrap,
+body:not(.messages-page) .hero-grid,
+body:not(.messages-page) .hero-inner{
+  width:min(1440px,calc(100% - 36px));
+  max-width:1440px;
+  margin:0 auto;
+}
+body:not(.messages-page) .hero-grid,
+body:not(.messages-page) .hero-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);
+  align-items:center;
+  gap:52px;
+}
+body:not(.messages-page) .hero-copy,
+body:not(.messages-page) .hero-content{
+  max-width:680px;
+}
+body:not(.messages-page) .hero h1,
+body:not(.messages-page) .hero-title{
+  color:var(--v16-navy);
+  font-size:clamp(3rem,5.2vw,5rem);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:900;
+}
+body:not(.messages-page) .hero h1 .red,
+body:not(.messages-page) .hero-title .red,
+body:not(.messages-page) .hero .accent-red{
+  color:var(--v16-red);
+}
+body:not(.messages-page) .hero h1 .orange,
+body:not(.messages-page) .hero-title .orange,
+body:not(.messages-page) .hero .accent-orange{
+  color:var(--v16-orange);
+}
+body:not(.messages-page) .hero p,
+body:not(.messages-page) .hero-desc{
+  max-width:600px;
+  color:#4b5563;
+  font-size:1rem;
+  line-height:1.65;
+}
+body:not(.messages-page) .hero-actions{
+  display:flex;
+  gap:14px;
+  margin-top:26px;
+}
+body:not(.messages-page) .hero-actions .btn{
+  min-height:52px;
+  border-radius:12px;
+  padding-inline:22px;
+}
+body:not(.messages-page) .hero-actions .btn-primary{
+  background:var(--v16-red);
+  border-color:var(--v16-red);
+}
+body:not(.messages-page) .hero-actions .btn-ghost{
+  background:#fff;
+  border-color:#d8dce3;
+}
+
+/* Hero stats */
+body:not(.messages-page) .hero-stats,
+body:not(.messages-page) .stats-row{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+  margin-top:34px;
+  max-width:720px;
+}
+body:not(.messages-page) .hero-stats > *,
+body:not(.messages-page) .stats-row > *{
+  padding-right:18px;
+  border-right:1px solid #ece8e0;
+}
+body:not(.messages-page) .hero-stats > *:last-child,
+body:not(.messages-page) .stats-row > *:last-child{
+  border-right:0;
+}
+body:not(.messages-page) .hero-stats strong,
+body:not(.messages-page) .stats-row strong{
+  color:var(--v16-navy);
+  font-size:1.55rem;
+  font-weight:900;
+}
+body:not(.messages-page) .hero-stats span,
+body:not(.messages-page) .stats-row span{
+  color:var(--v16-muted);
+  font-size:.78rem;
+}
+
+/* Hero cards */
+body:not(.messages-page) .hero-visual,
+body:not(.messages-page) .hero-cards,
+body:not(.messages-page) .floating-cards{
+  display:block;
+  position:relative;
+  min-height:470px;
+}
+body:not(.messages-page) .hero-card,
+body:not(.messages-page) .floating-card,
+body:not(.messages-page) .mock-card{
+  background:#fff;
+  border:1px solid #ede8df;
+  border-radius:18px;
+  box-shadow:0 14px 40px rgba(15,23,42,.11);
+}
+
+/* TRUST STRIP */
+body:not(.messages-page) .trust-strip,
+body:not(.messages-page) .benefits,
+body:not(.messages-page) .features-strip{
+  padding:0 0 26px;
+}
+body:not(.messages-page) .trust-strip .wrap,
+body:not(.messages-page) .trust-grid,
+body:not(.messages-page) .benefits-grid,
+body:not(.messages-page) .features-grid{
+  width:min(1440px,calc(100% - 36px));
+  max-width:1440px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  background:#fff;
+  border:1px solid #ece8e0;
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(15,23,42,.045);
+  overflow:hidden;
+}
+body:not(.messages-page) .trust-item,
+body:not(.messages-page) .benefit-item,
+body:not(.messages-page) .feature-item{
+  min-height:104px;
+  padding:20px;
+  border-right:1px solid #ece8e0;
+  border-bottom:0;
+}
+body:not(.messages-page) .trust-item:last-child,
+body:not(.messages-page) .benefit-item:last-child,
+body:not(.messages-page) .feature-item:last-child{
+  border-right:0;
+}
+
+/* POPULAR ADS SECTION */
+body:not(.messages-page) .section,
+body:not(.messages-page) .recent-section,
+body:not(.messages-page) .categories-section{
+  background:transparent;
+}
+body:not(.messages-page) .section .wrap,
+body:not(.messages-page) .recent-section .wrap,
+body:not(.messages-page) .categories-section .wrap{
+  width:min(1440px,calc(100% - 36px));
+  max-width:1440px;
+  margin:0 auto;
+}
+
+/* MOBILE */
+@media (max-width:1000px){
+  body:not(.messages-page) .nav .logo-text::before,
+  body:not(.messages-page) .nav .logo-text::after{
+    font-size:.93rem;
+  }
+
+  body:not(.messages-page) .hero{
+    padding:28px 0 24px;
+  }
+  body:not(.messages-page) .hero .wrap,
+  body:not(.messages-page) .hero-grid,
+  body:not(.messages-page) .hero-inner{
+    width:100%;
+    padding-left:15px;
+    padding-right:15px;
+  }
+  body:not(.messages-page) .hero-grid,
+  body:not(.messages-page) .hero-inner{
+    display:block;
+  }
+  body:not(.messages-page) .hero h1,
+  body:not(.messages-page) .hero-title{
+    font-size:clamp(2.25rem,11vw,3.1rem);
+  }
+  body:not(.messages-page) .hero-visual,
+  body:not(.messages-page) .hero-cards,
+  body:not(.messages-page) .floating-cards{
+    display:none;
+  }
+  body:not(.messages-page) .hero-stats,
+  body:not(.messages-page) .stats-row{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+  body:not(.messages-page) .hero-stats > *,
+  body:not(.messages-page) .stats-row > *{
+    border-right:0;
+  }
+  body:not(.messages-page) .trust-strip .wrap,
+  body:not(.messages-page) .trust-grid,
+  body:not(.messages-page) .benefits-grid,
+  body:not(.messages-page) .features-grid{
+    width:calc(100% - 24px);
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:560px){
+  body:not(.messages-page) .hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  body:not(.messages-page) .trust-strip .wrap,
+  body:not(.messages-page) .trust-grid,
+  body:not(.messages-page) .benefits-grid,
+  body:not(.messages-page) .features-grid{
+    grid-template-columns:1fr;
+  }
+  body:not(.messages-page) .trust-item,
+  body:not(.messages-page) .benefit-item,
+  body:not(.messages-page) .feature-item{
+    border-right:0;
+    border-bottom:1px solid #ece8e0;
+  }
+}
+
