@@ -164,16 +164,40 @@
   .loading-spin{ text-align:center; padding:40px; color:var(--lank-soft); }
 
   @media (max-width:760px){
-    body.show-chat .chat-area{ height: 100dvh; }
-    .chat-msgs{ padding-bottom: 8px; }
-    .chat-input-row{ position: sticky; bottom: 0; background: var(--blan); z-index: 10; padding: 10px 14px; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+    /* Chat mobil: pa kite header/nav oswa composer kache dènye mesaj yo */
+    body.show-chat{ height:100dvh; overflow:hidden; }
+    body.show-chat > header{ display:none; }
+    body.show-chat main{ flex:1; min-height:0; height:100dvh; }
+    body.show-chat .chat-layout{ height:100%; min-height:0; }
+    body.show-chat .chat-area{ display:flex; height:100%; min-height:0; overflow:hidden; }
 
     .chat-layout{ grid-template-columns: 1fr; }
     .conv-list{ display:flex; flex-direction:column; }
     .chat-area{ display:none; }
     body.show-chat .conv-list{ display:none; }
-    body.show-chat .chat-area{ display:flex; }
     .chat-back-mobile{ display:inline-flex !important; }
+
+    .chat-header{ padding:12px 14px; flex-shrink:0; }
+    .chat-msgs{
+      flex:1 1 auto;
+      min-height:0;
+      overflow-y:auto;
+      overscroll-behavior:contain;
+      -webkit-overflow-scrolling:touch;
+      padding:14px 14px 22px;
+      scroll-padding-bottom:24px;
+    }
+    .chat-input-row{
+      position:relative;
+      bottom:auto;
+      flex-shrink:0;
+      background:var(--blan);
+      z-index:20;
+      padding:10px 12px;
+      padding-bottom:max(10px, env(safe-area-inset-bottom));
+      box-shadow:0 -8px 24px rgba(0,0,0,.06);
+    }
+    .upload-preview{ flex-shrink:0; padding:8px 14px; }
   }
   .chat-back-mobile{ display:none; }
 
@@ -486,7 +510,7 @@
       msgsEl.innerHTML = msgs.length
         ? msgs.map(bubbleHTML).join('')
         : '<div class="empty-box"><p>Voye premye mesaj la!</p></div>';
-      msgsEl.scrollTop = msgsEl.scrollHeight;
+      requestAnimationFrame(() => { msgsEl.scrollTop = msgsEl.scrollHeight; });
     } catch (err) {
       console.error('Erè chaje mesaj:', err);
       msgsEl.innerHTML = `<div class="empty-box">
@@ -582,6 +606,15 @@
   }
   window.cancelFile = cancelFile;
 
+  // Sou mobil, keyboard la ka chanje wotè viewport la. Kenbe dènye mesaj la vizib.
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+      if (!document.body.classList.contains('show-chat')) return;
+      const msgsEl = document.getElementById('chatMsgs');
+      if (msgsEl) requestAnimationFrame(() => { msgsEl.scrollTop = msgsEl.scrollHeight; });
+    });
+  }
+
   // ══════════════════════════════════════════════
   // REALTIME — mesaj rive enstantane
   // ══════════════════════════════════════════════
@@ -602,7 +635,7 @@
               const emptyEl = msgsEl.querySelector('.empty-box');
               if (emptyEl) emptyEl.remove();
               msgsEl.insertAdjacentHTML('beforeend', bubbleHTML(msg));
-              msgsEl.scrollTop = msgsEl.scrollHeight;
+              requestAnimationFrame(() => { msgsEl.scrollTop = msgsEl.scrollHeight; });
             }
             // Mak kòm li si lòt moun voye l
             if (msg.sender_id !== currentUser.id) {
