@@ -1,0 +1,761 @@
+
+/* ============================================================
+   AYITI MARKET — V15 PRODUCTION UI
+   Single final UI layer. Intentionally small and targeted.
+   ============================================================ */
+
+:root {
+  --am-navy:#071f46;
+  --am-navy-2:#0b2b5c;
+  --am-red:#e31c3d;
+  --am-red-dark:#bd1532;
+  --am-blue:#1d4f91;
+  --am-bg:#f6f7f9;
+  --am-card:#ffffff;
+  --am-text:#111827;
+  --am-muted:#667085;
+  --am-border:#e4e7ec;
+  --am-soft:#f2f4f7;
+  --am-success:#16a34a;
+  --am-radius:16px;
+  --am-shadow:0 8px 30px rgba(15,23,42,.07);
+  --am-shadow-sm:0 3px 14px rgba(15,23,42,.055);
+}
+
+html { box-sizing:border-box; scroll-behavior:smooth; }
+*, *::before, *::after { box-sizing:inherit; }
+html, body { max-width:100%; overflow-x:hidden; }
+body {
+  margin:0;
+  background:var(--am-bg);
+  color:var(--am-text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-style:normal;
+}
+img { max-width:100%; }
+button, input, textarea, select { font:inherit; }
+button, a { -webkit-tap-highlight-color:transparent; }
+button { cursor:pointer; }
+h1,h2,h3,h4,h5,h6,.logo,.brand,.seller-name,.page-title {
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-style:normal;
+}
+main,.wrap,.container,.page-wrap,.page-container,.admin-main { min-width:0; }
+
+/* ---------- Brand / favicon-like identity ---------- */
+.am-brand {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  text-decoration:none;
+}
+.am-brand-logo,.drawer-brand img,.logo img {
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  object-fit:cover;
+  flex:0 0 auto;
+  box-shadow:0 2px 8px rgba(7,31,70,.16);
+}
+.am-brand-name,.drawer-brand strong {
+  color:var(--am-navy);
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.am-brand-market,.drawer-brand strong span { color:var(--am-red); }
+
+/* ---------- Shared surfaces ---------- */
+.card,.acc-card,.stat-kard,.stat-card,.seller-card,.admin-card,
+.testi-card,.conv-item,.conversation-item,.empty-box,.rating-summary,
+.review-form-card,.review-card {
+  background:var(--am-card);
+  border:1px solid var(--am-border);
+  border-radius:var(--am-radius);
+  box-shadow:var(--am-shadow-sm);
+}
+.card:hover,.acc-card:hover,.seller-card:hover {
+  box-shadow:var(--am-shadow);
+}
+.sec-head,.table-header {
+  gap:12px;
+}
+.sec-head h2,.sec-title,.acc-card-title,.table-title,.page-title {
+  color:var(--am-navy);
+  font-weight:850;
+  letter-spacing:-.025em;
+}
+
+/* ---------- Buttons ---------- */
+.btn,.btn-primary,.btn-ghost,.btn-secondary,.action-btn,
+.chat-send-btn,.chat-attach-btn,.btn-share,.btn-wa,.btn-contact {
+  min-height:42px;
+  border-radius:12px;
+  font-weight:750;
+  line-height:1.1;
+  transition:transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease;
+}
+.btn:active,.action-btn:active,.chat-send-btn:active { transform:scale(.98); }
+.btn-primary,.primary-btn {
+  background:var(--am-red);
+  border-color:var(--am-red);
+  color:#fff;
+  box-shadow:0 6px 15px rgba(227,28,61,.18);
+}
+.btn-primary:hover,.primary-btn:hover {
+  background:var(--am-red-dark);
+  border-color:var(--am-red-dark);
+}
+.btn-ghost,.btn-secondary,.secondary-btn {
+  background:#fff;
+  color:var(--am-navy);
+  border:1px solid #d0d5dd;
+  box-shadow:none;
+}
+.btn-danger { border-radius:10px; }
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible {
+  outline:3px solid rgba(29,79,145,.2);
+  outline-offset:2px;
+}
+
+/* ---------- Forms ---------- */
+.field label,.form-group label {
+  display:block;
+  color:#344054;
+  font-size:.82rem;
+  font-weight:750;
+  margin-bottom:7px;
+}
+.field input,.field textarea,.field select,
+.form-group input,.form-group textarea,.form-group select,
+.search-input,.table-search,.messages-search input {
+  width:100%;
+  min-height:44px;
+  background:#fff;
+  color:var(--am-text);
+  border:1px solid #d0d5dd;
+  border-radius:12px;
+  outline:none;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.field textarea,.form-group textarea { min-height:116px; resize:vertical; }
+.field input:focus,.field textarea:focus,.field select:focus,
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus,
+.search-input:focus,.table-search:focus,.messages-search input:focus {
+  border-color:#4b73a9;
+  box-shadow:0 0 0 3px rgba(29,79,145,.12);
+}
+.form-row-2,.field-row { gap:14px; }
+
+/* ---------- Main navigation ---------- */
+.nav {
+  background:#fff;
+  border-bottom:1px solid var(--am-border);
+  box-shadow:0 2px 12px rgba(15,23,42,.035);
+}
+.nav .logo,.nav .am-brand { color:var(--am-navy); }
+.nav-cta .btn-primary { border-radius:11px; }
+
+/* ---------- Mobile drawer ---------- */
+.mobile-drawer {
+  background:#fff;
+  border-right:1px solid var(--am-border);
+  box-shadow:18px 0 45px rgba(15,23,42,.15);
+}
+.mobile-drawer .drawer-brand {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:18px 18px 14px;
+  border-bottom:1px solid var(--am-border);
+}
+.mobile-drawer .drawer-brand small {
+  display:block;
+  margin-top:3px;
+  color:var(--am-muted);
+  font-size:.7rem;
+  font-weight:600;
+}
+.mobile-drawer > a:not(.btn) {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:48px;
+  margin:3px 10px;
+  padding:10px 12px;
+  border-radius:12px;
+  color:#344054;
+  font-weight:700;
+  text-decoration:none;
+}
+.mobile-drawer > a:not(.btn):hover { background:#f8fafc; color:var(--am-navy); }
+.mobile-drawer .drawer-ico {
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border-radius:10px;
+  background:#f2f4f7;
+  color:var(--am-navy);
+}
+.mobile-drawer .drawer-ico svg { width:18px; height:18px; }
+.mobile-drawer .drawer-section-label {
+  padding:17px 20px 5px;
+  color:#98a2b3;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.66rem;
+  font-weight:850;
+}
+.mobile-drawer .close-x {
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  border:1px solid var(--am-border);
+  background:#fff;
+  color:#344054;
+}
+.mobile-drawer > .btn { margin:10px 12px 0; width:calc(100% - 24px); }
+
+/* ---------- Bottom navigation ---------- */
+.bottom-nav {
+  background:rgba(255,255,255,.98);
+  border-top:1px solid var(--am-border);
+  box-shadow:0 -8px 28px rgba(15,23,42,.08);
+  backdrop-filter:blur(12px);
+}
+.bottom-nav .bn-item {
+  min-width:0;
+  min-height:54px;
+  padding:7px 3px 5px;
+  color:#667085;
+  font-size:.64rem;
+  font-weight:750;
+}
+.bottom-nav .bn-item svg { width:21px; height:21px; }
+.bottom-nav .bn-item.active { color:var(--am-red); }
+
+/* ---------- Home / listing cards ---------- */
+.katye,.recent-card,.sim-card {
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:15px;
+  box-shadow:var(--am-shadow-sm);
+  overflow:hidden;
+}
+.katye:hover,.recent-card:hover,.sim-card:hover {
+  transform:translateY(-2px);
+  box-shadow:var(--am-shadow);
+}
+.cat-pill,.chip,.fa-chip {
+  border-radius:999px;
+}
+.hero h1,.hero-title {
+  color:var(--am-navy);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+
+/* ---------- Publish modal ---------- */
+#publishModal {
+  padding:14px;
+}
+#publishModal .modal {
+  width:min(680px,100%);
+  max-height:calc(100dvh - 28px);
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:20px;
+  box-shadow:0 24px 80px rgba(15,23,42,.24);
+  overflow:hidden;
+}
+#publishModal .modal-head {
+  position:sticky;
+  top:0;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:17px 20px;
+  background:#fff;
+  border-bottom:1px solid var(--am-border);
+}
+#publishModal .modal-head h2 {
+  color:var(--am-navy);
+  font-size:1.12rem;
+  font-weight:850;
+  margin:0;
+}
+#publishModal .modal-close {
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  background:#f2f4f7;
+  border:0;
+  color:#475467;
+}
+#publishModal .modal-body {
+  max-height:calc(100dvh - 96px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:20px;
+  padding-bottom:34px;
+  scrollbar-gutter:stable;
+}
+#publishModal .field { margin-bottom:15px; }
+#publishModal .field-row { display:grid; grid-template-columns:1fr 1fr; }
+#publishModal .btn-full { width:100%; min-height:48px; border-radius:13px; }
+
+/* ---------- Detail sheet ---------- */
+.detail-sheet {
+  background:#fff;
+  border-left:1px solid var(--am-border);
+  box-shadow:-20px 0 60px rgba(15,23,42,.16);
+}
+.detail-hero {
+  position:relative;
+  background:#eef2f6;
+}
+.detail-body {
+  padding:22px;
+  padding-bottom:18px;
+  background:#fff;
+}
+.detail-price {
+  color:var(--am-red);
+  font-size:1.45rem;
+  font-weight:900;
+  letter-spacing:-.025em;
+}
+.detail-title {
+  color:var(--am-navy);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:850;
+  line-height:1.25;
+  letter-spacing:-.025em;
+}
+.detail-meta {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  margin-top:15px;
+}
+.detail-meta-item {
+  min-width:0;
+  padding:10px 11px;
+  background:#f8fafc;
+  border:1px solid var(--am-border);
+  border-radius:11px;
+}
+.detail-desc,.review-section,.similar-section {
+  border-color:var(--am-border);
+}
+.detail-actions {
+  position:sticky;
+  bottom:0;
+  z-index:4;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) 46px;
+  gap:9px;
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.97);
+  border-top:1px solid var(--am-border);
+  box-shadow:0 -8px 24px rgba(15,23,42,.07);
+  backdrop-filter:blur(10px);
+}
+.detail-actions .btn {
+  min-width:0;
+  width:100%;
+  min-height:46px;
+  border-radius:12px;
+}
+.detail-actions .btn-wa {
+  background:#20bd5a;
+  border-color:#20bd5a;
+  color:#fff;
+}
+.detail-actions .btn-contact {
+  background:var(--am-navy);
+  border-color:var(--am-navy);
+  color:#fff;
+}
+.detail-actions .btn-share {
+  width:46px;
+  min-width:46px;
+  padding:0;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:var(--am-navy);
+  border:1px solid #d0d5dd;
+}
+.similar-section { padding-bottom:24px; }
+.similar-title {
+  color:var(--am-navy);
+  font-weight:850;
+}
+.similar-grid { gap:12px; }
+
+/* ---------- Profile / account ---------- */
+.acc-header,.profile-header {
+  background:linear-gradient(135deg,var(--am-navy),#0d3873);
+  color:#fff;
+  border-radius:0 0 22px 22px;
+}
+.acc-tabs,.profile-tabs {
+  gap:6px;
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:14px;
+  padding:5px;
+  box-shadow:var(--am-shadow-sm);
+}
+.acc-tab {
+  min-height:40px;
+  border-radius:10px;
+  color:#667085;
+  font-weight:750;
+}
+.acc-tab.active {
+  background:var(--am-navy);
+  color:#fff;
+}
+.stat-kard {
+  padding:16px;
+}
+.stat-kard-val {
+  color:var(--am-navy);
+  font-weight:900;
+}
+.acc-card { overflow:hidden; }
+.acc-card-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.account-avatar,.profile-avatar {
+  border:3px solid rgba(255,255,255,.9);
+  box-shadow:0 8px 24px rgba(7,31,70,.18);
+}
+
+/* ---------- Seller ---------- */
+.seller-hero {
+  background:linear-gradient(135deg,var(--am-navy),#0d3873);
+  color:#fff;
+}
+.seller-hero-inner {
+  gap:18px;
+}
+.seller-avatar {
+  border:4px solid rgba(255,255,255,.9);
+  box-shadow:0 10px 25px rgba(0,0,0,.14);
+}
+.seller-name { color:#fff; }
+.seller-bio { color:rgba(255,255,255,.82); }
+.seller-stats {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+.stat-box {
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:14px;
+  box-shadow:var(--am-shadow-sm);
+}
+.listings-grid { gap:16px; }
+
+/* ---------- Admin ---------- */
+.admin-nav {
+  background:var(--am-navy);
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  box-shadow:0 5px 18px rgba(7,31,70,.14);
+}
+.admin-nav .brand {
+  color:#fff;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:900;
+}
+.admin-wrap { gap:20px; }
+.sidebar {
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:16px;
+  box-shadow:var(--am-shadow-sm);
+}
+.sidebar-item {
+  border-radius:10px;
+  font-weight:700;
+}
+.sidebar-item.active {
+  background:#edf3fb;
+  color:var(--am-navy);
+}
+.stats-grid { gap:14px; }
+.stat-card { padding:17px; }
+.stat-label { color:var(--am-muted); font-weight:700; }
+.stat-val { color:var(--am-navy); font-weight:900; }
+.table-wrap {
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:16px;
+  box-shadow:var(--am-shadow-sm);
+}
+.table-header {
+  padding:14px;
+  border-bottom:1px solid var(--am-border);
+}
+table { width:100%; border-collapse:collapse; }
+th {
+  background:#f8fafc;
+  color:#667085;
+  font-size:.69rem;
+  font-weight:850;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+td,th { padding:11px 12px; border-bottom:1px solid #eef0f3; }
+tbody tr:hover { background:#fbfcfe; }
+.action-btn { min-height:34px; border-radius:9px; }
+
+/* ---------- Messages ---------- */
+.messages-page {
+  background:var(--am-bg);
+}
+.messages-toolbar {
+  background:#fff;
+  border-bottom:1px solid var(--am-border);
+}
+.chat-layout {
+  background:#fff;
+  border:1px solid var(--am-border);
+  border-radius:18px;
+  box-shadow:var(--am-shadow);
+  overflow:hidden;
+}
+.conv-list {
+  background:#fff;
+  border-right:1px solid var(--am-border);
+}
+.conv-item {
+  margin:4px 7px;
+  padding:11px;
+  border:0;
+  box-shadow:none;
+}
+.conv-item:hover,.conv-item.active { background:#f3f6fa; }
+.conv-avatar {
+  width:44px;
+  height:44px;
+  border-radius:13px;
+}
+.conv-name { color:var(--am-navy); font-weight:800; }
+.conv-preview { color:var(--am-muted); }
+.chat-header {
+  background:#fff;
+  border-bottom:1px solid var(--am-border);
+}
+.chat-msgs {
+  background:#f7f8fa;
+  overscroll-behavior:contain;
+}
+.message-bubble,.bubble {
+  max-width:min(78%,560px);
+  border-radius:16px;
+  box-shadow:0 2px 8px rgba(15,23,42,.045);
+}
+.chat-input-row {
+  background:#fff;
+  border-top:1px solid var(--am-border);
+}
+.chat-input-row textarea,.chat-input-row input {
+  border:1px solid #d0d5dd;
+  border-radius:14px;
+}
+.chat-send-btn {
+  width:44px;
+  height:44px;
+  min-height:44px;
+  border-radius:13px;
+  background:var(--am-red);
+  color:#fff;
+  border:0;
+}
+.empty-box {
+  text-align:center;
+  color:var(--am-muted);
+  padding:28px 18px;
+}
+
+/* ---------- Light consistency even when legacy dark token is selected ---------- */
+:root[data-theme="dark"] body { background:#111827; color:#e5e7eb; }
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .acc-card,
+:root[data-theme="dark"] .stat-card,
+:root[data-theme="dark"] .stat-kard,
+:root[data-theme="dark"] .seller-card,
+:root[data-theme="dark"] .table-wrap,
+:root[data-theme="dark"] .chat-layout,
+:root[data-theme="dark"] .conv-list,
+:root[data-theme="dark"] .chat-header,
+:root[data-theme="dark"] .chat-input-row,
+:root[data-theme="dark"] #publishModal .modal,
+:root[data-theme="dark"] #publishModal .modal-head,
+:root[data-theme="dark"] #publishModal .modal-body,
+:root[data-theme="dark"] .detail-sheet,
+:root[data-theme="dark"] .detail-body {
+  background:#171c25;
+  border-color:#293140;
+  color:#e5e7eb;
+}
+:root[data-theme="dark"] .field input,
+:root[data-theme="dark"] .field textarea,
+:root[data-theme="dark"] .field select,
+:root[data-theme="dark"] .form-group input,
+:root[data-theme="dark"] .form-group textarea,
+:root[data-theme="dark"] .form-group select {
+  background:#111620;
+  color:#e5e7eb;
+  border-color:#354052;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .seller-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .admin-wrap { gap:12px; }
+  .detail-meta { grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  body { padding-bottom:calc(70px + env(safe-area-inset-bottom)); }
+  .wrap,.container,.page-wrap,.page-container { padding-left:14px; padding-right:14px; }
+
+  .bottom-nav {
+    height:calc(64px + env(safe-area-inset-bottom));
+    padding:4px 4px env(safe-area-inset-bottom);
+    z-index:1200;
+  }
+  .bottom-nav .bn-item {
+    min-height:54px;
+    gap:2px;
+  }
+
+  .mobile-drawer {
+    width:min(86vw,360px);
+    max-width:360px;
+    height:100dvh;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    padding-bottom:calc(22px + env(safe-area-inset-bottom));
+  }
+
+  #publishModal {
+    align-items:flex-end;
+    padding:0;
+  }
+  #publishModal .modal {
+    width:100%;
+    max-width:none;
+    max-height:94dvh;
+    border-radius:22px 22px 0 0;
+    border-left:0;
+    border-right:0;
+    border-bottom:0;
+  }
+  #publishModal .modal-body {
+    max-height:calc(94dvh - 73px);
+    padding:17px 15px calc(96px + env(safe-area-inset-bottom));
+  }
+  #publishModal .field-row { grid-template-columns:1fr; gap:0; }
+
+  .detail-sheet {
+    width:100%;
+    max-width:none;
+    height:100dvh;
+    border-left:0;
+  }
+  .detail-body {
+    padding:17px 15px 14px;
+  }
+  .detail-meta {
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  .detail-actions {
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) 44px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+  .detail-actions .btn { min-height:44px; font-size:.79rem; }
+  .detail-actions .btn-share { width:44px; min-width:44px; }
+
+  .acc-tabs,.profile-tabs {
+    display:flex;
+    overflow-x:auto;
+    white-space:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .acc-tabs::-webkit-scrollbar,.profile-tabs::-webkit-scrollbar { display:none; }
+  .acc-tab { flex:0 0 auto; padding-inline:13px; }
+
+  .acc-card-actions { display:grid; grid-template-columns:1fr 1fr; }
+  .acc-card-actions .btn { width:100%; }
+
+  .seller-hero-inner { align-items:flex-start; }
+  .seller-stats { grid-template-columns:1fr 1fr; }
+
+  .sidebar {
+    border-radius:14px;
+  }
+  .table-wrap { border-radius:14px; }
+
+  .chat-layout {
+    border-radius:0;
+    border-left:0;
+    border-right:0;
+    min-height:calc(100dvh - 130px);
+  }
+  .chat-msgs {
+    padding-bottom:92px;
+    scroll-padding-bottom:92px;
+  }
+  .chat-input-row {
+    position:sticky;
+    bottom:0;
+    z-index:5;
+    padding-bottom:calc(9px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 420px) {
+  .detail-meta { grid-template-columns:1fr; }
+  .detail-actions {
+    grid-template-columns:1fr 1fr;
+  }
+  .detail-actions .btn-share {
+    grid-column:1/-1;
+    width:100%;
+  }
+  .seller-stats { gap:8px; }
+  .acc-card-actions { grid-template-columns:1fr; }
+}
+
+/* Accessibility / reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto;
+    transition-duration:.01ms;
+    animation-duration:.01ms;
+    animation-iteration-count:1;
+  }
+}
