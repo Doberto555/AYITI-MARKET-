@@ -87,3 +87,52 @@ img{max-width:100%}
   .bottom-nav{padding-bottom:max(6px,env(safe-area-inset-bottom))!important}
 }
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* === AYITI MARKET PRO PASS 2 === */
+:root{--pro-radius:16px;--pro-surface:var(--blan);--pro-muted:var(--lank-soft)}
+/* remove legacy editorial italics */
+em,.quote-card p,.testimonial p,.ap-hero em,.reg-card em{font-style:normal!important}
+/* consistent page shells */
+main,.ap-section,.ct-wrap,.legal-wrap{position:relative}
+.acc-card,.profile-section,.stats-cards>*,.ct-form-card,.ct-side-card,.review-card,.review-form-wrap,.seller-hero,.legal-content,.login-box,.reg-card{border-radius:var(--pro-radius)!important;box-shadow:var(--pro-shadow-sm)!important;border-color:var(--liy)!important}
+.form-group input,.form-group select,.form-group textarea,.ct-form-card input,.ct-form-card textarea,.ct-form-card select{border-radius:11px!important;min-height:46px!important;border:1px solid var(--liy)!important;transition:.2s ease!important}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus,.ct-form-card input:focus,.ct-form-card textarea:focus{outline:none!important;border-color:var(--wouj)!important;box-shadow:var(--pro-focus)!important}
+/* admin */
+.admin-nav{box-shadow:0 1px 0 rgba(255,255,255,.08),0 8px 30px rgba(0,0,0,.08)!important}
+.sidebar{border-right:1px solid var(--liy)!important}
+.sidebar-item{border-radius:10px!important;margin:3px 8px!important;font-weight:650!important;transition:.18s ease!important}
+.sidebar-item:hover{transform:translateX(2px)}
+.stat-card{border-radius:16px!important;box-shadow:var(--pro-shadow-sm)!important;border:1px solid var(--liy)!important;overflow:hidden!important}
+.stat-val{font-family:var(--body)!important;font-weight:850!important;letter-spacing:-.035em!important}
+.main table{border-collapse:separate!important;border-spacing:0!important;overflow:hidden!important;border:1px solid var(--liy)!important;border-radius:14px!important}
+.main th{font-size:.76rem!important;text-transform:uppercase!important;letter-spacing:.055em!important}
+.main td,.main th{padding:13px 14px!important}
+.report-card{border-radius:14px!important;box-shadow:var(--pro-shadow-sm)!important}
+/* account */
+.acc-tabs{gap:6px!important;padding:6px!important;border-radius:14px!important}
+.acc-tab{border-radius:9px!important;font-weight:700!important}
+.profile-section .form-section-title{font-family:var(--body)!important;font-weight:800!important;letter-spacing:-.02em!important;margin-top:26px!important}
+#proStatusCard,#referralCard,#bizProfileCard{box-shadow:var(--pro-shadow-sm)!important;background:var(--blan)!important}
+/* messages */
+.chat-shell,.messages-wrap,.messages-layout{border-radius:18px!important;overflow:hidden!important;box-shadow:var(--pro-shadow-md)!important;border:1px solid var(--liy)!important}
+.conv-item,.conversation-item{border-radius:12px!important;margin:4px 7px!important;transition:.18s ease!important}
+.conv-item:hover,.conversation-item:hover{transform:translateX(2px)}
+.message-bubble,.bubble{border-radius:16px!important;box-shadow:0 2px 8px rgba(20,24,31,.06)!important}
+/* seller */
+.seller-hero{overflow:hidden!important;position:relative!important}
+.seller-hero::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-140px;top:-180px;background:radial-gradient(circle,rgba(185,28,60,.12),transparent 70%);pointer-events:none}
+.seller-avatar{box-shadow:0 0 0 5px var(--blan),0 10px 25px rgba(0,0,0,.12)!important}
+.seller-name{font-family:var(--body)!important;font-weight:850!important;letter-spacing:-.035em!important}
+.seller-stats>*{border-radius:12px!important}
+.review-card{padding:18px!important}
+/* auth/about/contact/legal/404 */
+.reg-card,.login-box{box-shadow:var(--pro-shadow-lg)!important}
+.ap-hero h1,.ct-hero h1,.legal-hero h1,.hero-404 h1{font-family:var(--body)!important;font-weight:850!important;letter-spacing:-.045em!important}
+.ap-stats>*,.ap-section .card,.ct-side-card{border-radius:16px!important;box-shadow:var(--pro-shadow-sm)!important}
+.legal-content section{scroll-margin-top:100px}
+.hero-404{max-width:760px!important;margin-inline:auto!important}
+@media(max-width:760px){
+ .admin-nav .nav-user span{display:none!important}.main{padding:18px!important}.stat-card{min-height:112px!important}
+ .seller-hero{border-radius:0!important}.seller-hero-inner{padding-left:18px!important;padding-right:18px!important}
+ .acc-tabs{overflow-x:auto!important;scrollbar-width:none}.acc-tab{white-space:nowrap!important}
+}
