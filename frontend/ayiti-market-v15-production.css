@@ -2050,3 +2050,329 @@ body:not(.messages-page) .categories-section .wrap{
   }
 }
 
+/* ============================================================
+   V16.1 — MOBILE PROFESSIONAL POLISH
+   Home + ticker + messages
+   ============================================================ */
+
+/* --- TICKER: compact, balanced, no giant empty black band --- */
+body:not(.messages-page) .ticker,
+body:not(.messages-page) .marquee,
+body:not(.messages-page) .ticker-wrap {
+  min-height:42px !important;
+  height:42px !important;
+  max-height:42px !important;
+  background:#101820;
+  overflow:hidden !important;
+}
+body:not(.messages-page) .ticker-track,
+body:not(.messages-page) .marquee-track {
+  height:42px;
+  display:flex;
+  align-items:center;
+  gap:34px;
+  white-space:nowrap;
+  font-size:.72rem;
+  line-height:1;
+  letter-spacing:.055em;
+}
+
+/* --- HOME MOBILE --- */
+@media (max-width:1000px) {
+  body:not(.messages-page) .nav {
+    min-height:62px;
+    height:62px;
+  }
+  body:not(.messages-page) .nav .wrap {
+    min-height:62px;
+    height:62px;
+    padding:7px 13px;
+  }
+  body:not(.messages-page) .nav .logo {
+    max-width:calc(100% - 54px);
+    min-width:0;
+    gap:8px;
+  }
+  body:not(.messages-page) .nav .logo img {
+    width:38px;
+    height:38px;
+    flex-basis:38px;
+  }
+
+  /* V16 generated brand only: AYITI MARKET. Hide original slogan/text entirely. */
+  body:not(.messages-page) .nav .logo-text {
+    display:inline-flex !important;
+    align-items:center;
+    width:auto;
+    min-width:0;
+    max-width:220px;
+    overflow:hidden;
+    white-space:nowrap;
+    font-size:0 !important;
+    line-height:1;
+  }
+  body:not(.messages-page) .nav .logo-text > *,
+  body:not(.messages-page) .nav .logo-text .tagline {
+    display:none !important;
+  }
+  body:not(.messages-page) .nav .logo-text::before {
+    content:"AYITI";
+    display:inline !important;
+    flex:0 0 auto;
+    font-size:.92rem !important;
+    color:#0b2d63;
+    font-weight:900;
+    letter-spacing:-.025em;
+  }
+  body:not(.messages-page) .nav .logo-text::after {
+    content:"MARKET";
+    display:inline !important;
+    flex:0 0 auto;
+    font-size:.92rem !important;
+    color:#ef1739;
+    font-weight:900;
+    letter-spacing:-.025em;
+  }
+
+  body:not(.messages-page) .catbar {
+    min-height:56px;
+    padding:7px 0;
+    background:#fffaf3;
+  }
+  body:not(.messages-page) .catbar .wrap,
+  body:not(.messages-page) .catbar-inner {
+    padding:0 12px;
+    gap:7px;
+  }
+  body:not(.messages-page) .cat-pill {
+    min-height:40px;
+    padding:0 13px;
+    border-radius:12px;
+    font-size:.7rem;
+    box-shadow:none;
+  }
+
+  body:not(.messages-page) .hero {
+    padding:25px 0 18px !important;
+    min-height:0 !important;
+  }
+  body:not(.messages-page) .hero h1,
+  body:not(.messages-page) .hero-title {
+    margin:14px 0 14px;
+    max-width:620px;
+    font-size:clamp(2.15rem,10.4vw,3rem) !important;
+    line-height:1.015 !important;
+    letter-spacing:-.052em;
+  }
+  body:not(.messages-page) .hero p,
+  body:not(.messages-page) .hero-desc {
+    display:none;
+  }
+  body:not(.messages-page) .hero-actions {
+    margin-top:22px;
+    gap:10px;
+  }
+  body:not(.messages-page) .hero-actions .btn {
+    min-height:50px;
+    border-radius:12px;
+    font-size:.88rem;
+  }
+  body:not(.messages-page) .hero-stats,
+  body:not(.messages-page) .stats-row {
+    margin-top:24px !important;
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+    gap:16px 24px;
+  }
+  body:not(.messages-page) .hero-stats strong,
+  body:not(.messages-page) .stats-row strong {
+    font-size:1.35rem;
+  }
+  body:not(.messages-page) .hero-stats span,
+  body:not(.messages-page) .stats-row span {
+    display:block;
+    margin-top:4px;
+    font-size:.72rem;
+    line-height:1.25;
+  }
+  body:not(.messages-page) .hero::after {
+    display:none !important;
+  }
+
+  /* Avoid the huge blank area after the stats seen in screenshot. */
+  body:not(.messages-page) .hero-copy,
+  body:not(.messages-page) .hero-content {
+    padding-bottom:0 !important;
+    margin-bottom:0 !important;
+  }
+}
+
+/* --- MESSAGES: professional compact inbox --- */
+body.messages-page {
+  background:#f5f7fa;
+}
+body.messages-page > header {
+  background:#fff !important;
+  border-bottom:1px solid #e7eaf0;
+  box-shadow:0 2px 12px rgba(15,23,42,.045);
+}
+body.messages-page > header .nav {
+  min-height:62px;
+  background:#fff !important;
+  box-shadow:none;
+}
+body.messages-page > header .nav .wrap {
+  min-height:62px;
+}
+body.messages-page > header .logo,
+body.messages-page > header .am-brand {
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+body.messages-page > header .logo img,
+body.messages-page > header .am-brand-logo {
+  width:38px;
+  height:38px;
+  border-radius:10px;
+}
+body.messages-page > header .logo-text,
+body.messages-page > header .am-brand-name {
+  display:inline-flex;
+  align-items:center;
+  font-size:0 !important;
+  white-space:nowrap;
+}
+body.messages-page > header .logo-text::before,
+body.messages-page > header .am-brand-name::before {
+  content:"AYITI";
+  font-size:.92rem;
+  font-weight:900;
+  color:#0b2d63;
+  letter-spacing:-.025em;
+}
+body.messages-page > header .logo-text::after,
+body.messages-page > header .am-brand-name::after {
+  content:" MARKET";
+  font-size:.92rem;
+  font-weight:900;
+  color:#ef1739;
+  letter-spacing:-.025em;
+}
+
+body.messages-page .messages-toolbar {
+  padding:9px 12px 11px;
+  background:#fff !important;
+  border-bottom:1px solid #e7eaf0;
+}
+body.messages-page .messages-search {
+  height:44px;
+  max-width:720px;
+  background:#f5f7fa;
+  border:1px solid #e2e6ec;
+  border-radius:13px;
+  box-shadow:none;
+}
+body.messages-page .messages-search input {
+  height:42px;
+  font-size:.82rem;
+}
+body.messages-page .conv-list {
+  background:#fff;
+}
+body.messages-page .conv-item {
+  min-height:88px;
+  padding:12px 14px !important;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid #edf0f3 !important;
+  background:#fff;
+  box-shadow:none !important;
+}
+body.messages-page .conv-item:hover,
+body.messages-page .conv-item.active {
+  background:#f7f9fc;
+}
+body.messages-page .conv-avatar,
+body.messages-page .avatar {
+  width:52px !important;
+  height:52px !important;
+  min-width:52px !important;
+  flex:0 0 52px !important;
+  border-radius:15px !important;
+  display:grid;
+  place-items:center;
+  font-size:.9rem !important;
+  font-weight:800;
+  background:#28588c;
+}
+body.messages-page .conv-item h3,
+body.messages-page .conv-name {
+  margin:0 0 3px;
+  color:#102a50;
+  font-size:.9rem !important;
+  line-height:1.2;
+  font-weight:850;
+}
+body.messages-page .conv-item p,
+body.messages-page .conv-preview,
+body.messages-page .conv-subject {
+  margin:2px 0 0;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:.75rem !important;
+  line-height:1.25;
+  color:#667085;
+}
+
+/* Messages mobile: white professional header, no oversized navy search band. */
+@media (max-width:760px) {
+  body.messages-page > header {
+    display:block;
+    flex:0 0 62px;
+  }
+  body.messages-page > header .nav {
+    display:flex;
+    min-height:62px;
+    height:62px;
+    padding:7px 13px;
+    background:#fff !important;
+  }
+  body.messages-page > header .am-brand-name,
+  body.messages-page > header .logo {
+    color:#0b2d63 !important;
+  }
+  body.messages-page .messages-toolbar {
+    padding:8px 12px 10px;
+    background:#fff !important;
+  }
+  body.messages-page .messages-search {
+    width:100%;
+    height:43px;
+    margin:0;
+    background:#f5f7fa;
+    border-color:#e1e5eb;
+  }
+  body.messages-page .conv-item {
+    min-height:86px;
+  }
+  body.messages-page .bottom-nav {
+    background:#fff;
+    box-shadow:0 -5px 18px rgba(15,23,42,.07);
+  }
+}
+
+@media (max-width:420px) {
+  body:not(.messages-page) .nav .logo-text::before,
+  body:not(.messages-page) .nav .logo-text::after,
+  body.messages-page > header .logo-text::before,
+  body.messages-page > header .logo-text::after,
+  body.messages-page > header .am-brand-name::before,
+  body.messages-page > header .am-brand-name::after {
+    font-size:.86rem !important;
+  }
+}
+
