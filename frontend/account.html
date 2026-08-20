@@ -7,7 +7,7 @@
 <title>Mon Kont — Ayiti Market</title>
 <meta name="robots" content="noindex">
 
-<link rel="icon" type="image/png" href="/icons/icon-192.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23B91C3C'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='26' fill='%23FBF6EC'>AM</text></svg>">
 <link rel="apple-touch-icon" href="/icons/icon-180.png">
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0B0D12">
@@ -652,16 +652,20 @@
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3671082075819991"
      crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="ayiti-market-v15-production.css?v=15.5">
+<link rel="stylesheet" href="pro-theme.css?v=2">
+<link rel="stylesheet" href="pro-v4.css?v=4">
 </head>
 <body>
 
 <!-- ============ HEADER ============ -->
 <header>
   <div class="nav">
-    <a href="index.html" class="logo account-brand" aria-label="Ayiti Market — Akey">
-      <img src="icons/icon-192.png" alt="" class="account-brand-icon">
-      <span class="account-brand-text"><b>AYITI</b> <strong>MARKET</strong></span>
+    <a href="index.html" class="logo">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none" style="border-radius:7px;flex-shrink:0;">
+        <rect width="64" height="64" rx="14" fill="#B91C3C"/>
+        <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="26" fill="#FBF6EC">AM</text>
+      </svg>
+      Ayiti Market
     </a>
     <div class="nav-actions">
       <a href="messages.html" class="btn btn-ghost btn-sm">Mesaj</a>
@@ -686,15 +690,11 @@
     <!-- Profile Banner -->
     <div class="acc-head">
       <div class="acc-head-inner">
-        <div class="acc-avatar" id="accAvatar" aria-label="Foto pwofil">U</div>
+        <div class="acc-avatar" id="accAvatar">??</div>
         <div class="acc-info">
           <div class="acc-name" id="accName">—</div>
           <div class="acc-email" id="accEmail">—</div>
-          <div class="acc-status-chip">Kont Ayiti Market</div>
         </div>
-        <button type="button" class="acc-settings-shortcut" data-open-profile aria-label="Modifye pwofil" title="Modifye pwofil">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.05a1.7 1.7 0 0 0-1.05-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.05A1.7 1.7 0 0 0 4.6 8.95a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.05a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.1.36.45.99 1.55 1H21a2 2 0 1 1 0 4h-.05A1.7 1.7 0 0 0 19.4 15z"/></svg>
-        </button>
       </div>
     </div>
 
@@ -2842,14 +2842,6 @@
   </a>
 </nav>
 
-<script>
-  document.addEventListener('click', function (e) {
-    const btn = e.target.closest('[data-open-profile]');
-    if (!btn) return;
-    const tab = document.querySelector('.acc-tab[data-tab="profile"]');
-    if (tab) { tab.click(); setTimeout(() => document.getElementById('panel-profile')?.scrollIntoView({behavior:'smooth', block:'start'}), 60); }
-  });
-</script>
 </body>
 
 </html>
