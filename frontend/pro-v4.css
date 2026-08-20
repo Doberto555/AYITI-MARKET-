@@ -1,0 +1,28 @@
+/* AYITI MARKET — V4 production polish */
+:root{--v4-radius:18px;--v4-radius-sm:12px;--v4-shadow:0 12px 36px rgba(15,23,42,.08);--v4-shadow-hover:0 18px 48px rgba(15,23,42,.13)}
+html{scroll-behavior:smooth} body{font-style:normal;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6,em,.italic{font-style:normal}
+button,a,input,select,textarea{font:inherit} button,.btn,[role="button"]{transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+button:active,.btn:active{transform:translateY(1px)}
+input,select,textarea{min-height:46px;border-radius:12px} textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid rgba(0,102,204,.12);outline-offset:1px}
+.card,.panel,.box,.stat-card,.review-card,.conversation-item{border-radius:var(--v4-radius);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.card:hover,.review-card:hover{transform:translateY(-3px);box-shadow:var(--v4-shadow-hover)}
+img{max-width:100%}.card img{object-fit:cover}
+/* Admin */
+.admin-layout,.dashboard{min-height:100vh}.sidebar{backdrop-filter:saturate(130%) blur(10px)}
+.main table{border-collapse:separate;border-spacing:0;width:100%}.main table th{font-size:.76rem;text-transform:uppercase;letter-spacing:.055em}.main table tr{transition:background .16s ease}.main table tbody tr:hover{background:rgba(0,102,204,.035)}
+/* Account */
+.profile-card,.account-card,.settings-card{box-shadow:var(--v4-shadow);border-radius:var(--v4-radius)}
+/* Seller */
+.seller-hero{border-radius:24px;overflow:hidden}.seller-stats>*{border-radius:14px}.review-card{border-radius:16px}
+/* Messages */
+.chat-container,.messages-layout{border-radius:20px;overflow:hidden;box-shadow:var(--v4-shadow)}
+.message-input{min-height:46px}.message-bubble,.bubble{line-height:1.5}
+/* Home */
+.hero-search,.search-box,.nav-search{border-radius:16px}.sec-head{align-items:end}.sec-head h2{line-height:1.1}
+/* Accessibility + mobile */
+:focus-visible{outline:3px solid rgba(0,102,204,.28);outline-offset:2px}
+@media(max-width:900px){.main{overflow-x:hidden}.main table{width:max-content;min-width:100%}.seller-hero{border-radius:18px}.chat-container,.messages-layout{border-radius:0;box-shadow:none}}
+@media(max-width:600px){h1{font-size:clamp(1.75rem,8vw,2.35rem)}h2{font-size:clamp(1.35rem,6vw,1.8rem)}.card,.panel,.box,.stat-card{border-radius:14px}.btn,button{min-height:44px}.seller-stats{grid-template-columns:1fr 1fr}.message-bubble,.bubble{max-width:90%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto;transition:none;animation:none}}
