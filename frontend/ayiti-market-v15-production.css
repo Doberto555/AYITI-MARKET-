@@ -2376,3 +2376,24 @@ body.messages-page .conv-subject {
   }
 }
 
+
+/* V16.2 CLEAN MOBILE */
+.am-brand-sub{display:none!important}
+@media(max-width:1000px){
+ body:not(.messages-page) .am-brand{min-width:0!important;max-width:calc(100% - 56px)!important;overflow:hidden!important}
+ body:not(.messages-page) .am-brand>span{min-width:0!important;max-width:100%!important;overflow:hidden!important}
+ body:not(.messages-page) .am-brand-name{display:inline-flex!important;align-items:center!important;min-width:0!important;max-width:100%!important;overflow:hidden!important;white-space:nowrap!important;font-size:.94rem!important;line-height:1!important;letter-spacing:-.035em!important}
+ body:not(.messages-page) .am-brand-ayiti{color:#0b2d63!important}
+ body:not(.messages-page) .am-brand-market{color:#ef1739!important}
+ body:not(.messages-page) .nav .logo-text:before,body:not(.messages-page) .nav .logo-text:after{content:none!important;display:none!important}
+ body:not(.messages-page) .hero{padding-bottom:14px!important}
+ body:not(.messages-page) .hero-stats,body:not(.messages-page) .stats-row{margin-bottom:4px!important}
+ body:not(.messages-page) .marquee-wrap{height:38px!important;min-height:38px!important;max-height:38px!important;padding:0!important;margin:0!important;display:flex!important;align-items:center!important}
+ body:not(.messages-page) .marquee{height:38px!important;align-items:center!important;gap:28px!important}
+ body:not(.messages-page) .marquee span{font-size:.68rem!important;line-height:38px!important}
+}
+body.messages-page .am-brand-name{display:inline-flex!important;align-items:center!important;font-size:.92rem!important;font-weight:900!important;letter-spacing:-.03em!important}
+body.messages-page .am-brand-name:before,body.messages-page .am-brand-name:after{content:none!important;display:none!important}
+body.messages-page .am-brand-ayiti{color:#0b2d63!important}
+body.messages-page .am-brand-market{color:#ef1739!important}
+@media(max-width:420px){body:not(.messages-page) .am-brand-name,body.messages-page .am-brand-name{font-size:.86rem!important}}
