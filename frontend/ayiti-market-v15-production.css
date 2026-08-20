@@ -1122,30 +1122,226 @@ body.messages-page .chat-send-btn {
     width:min(90vw,350px);
   }
 }
-/* V15.3 DESKTOP HEADER FIX */
-@media (min-width:1001px){
- body:not(.messages-page) .nav{min-height:76px;padding:0}
- body:not(.messages-page) .nav .wrap{width:min(1240px,calc(100% - 40px));max-width:1240px;min-height:76px;margin:0 auto;padding:0;display:grid;grid-template-columns:minmax(245px,1fr) minmax(230px,.85fr) auto;align-items:center;gap:18px}
- body:not(.messages-page) .nav .logo{min-width:0;max-width:100%;display:flex;align-items:center;gap:9px;white-space:nowrap;overflow:hidden}
- body:not(.messages-page) .nav .logo img{width:38px;height:38px;flex:0 0 38px}
- body:not(.messages-page) .nav .logo-text{min-width:0;font-size:1rem;line-height:1;white-space:nowrap}
- body:not(.messages-page) .nav .tagline,body:not(.messages-page) .nav .logo-sub,body:not(.messages-page) .nav .brand-subtitle{display:none}
- body:not(.messages-page) .nav .search,body:not(.messages-page) .nav .nav-search,body:not(.messages-page) .nav .search-wrap{position:relative;inset:auto;transform:none;width:100%;max-width:340px;min-width:0;margin:0;justify-self:center;z-index:1}
- body:not(.messages-page) .nav .search input,body:not(.messages-page) .nav .nav-search input,body:not(.messages-page) .nav .search-wrap input{width:100%;min-width:0;height:44px;border-radius:999px}
- body:not(.messages-page) .nav-links{min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:4px;flex-wrap:nowrap;white-space:nowrap}
- body:not(.messages-page) .nav-links>a{padding:9px 7px;font-size:.77rem;line-height:1.15;border-radius:9px}
- body:not(.messages-page) .nav-cta,body:not(.messages-page) .nav-links .btn-primary{flex:0 0 auto;min-height:42px;padding:10px 14px;font-size:.76rem;white-space:nowrap}
- body:not(.messages-page) .catbar{min-height:72px;padding:10px 0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
- body:not(.messages-page) .catbar::-webkit-scrollbar{display:none}
- body:not(.messages-page) .catbar .wrap,body:not(.messages-page) .catbar-inner{width:min(1440px,calc(100% - 34px));max-width:1440px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
- body:not(.messages-page) .cat-pill{flex:0 0 auto;min-height:46px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:.76rem;white-space:nowrap}
- body:not(.messages-page) .cat-pill:empty,body:not(.messages-page) .catbar button:empty,body:not(.messages-page) .catbar a:empty{display:none}
+
+/* ============================================================
+   V15.4 — STABLE DESKTOP HEADER
+   ============================================================ */
+@media (min-width:1001px) {
+  body:not(.messages-page) .nav {
+    min-height:76px;
+    padding:0 20px;
+    overflow:visible;
+  }
+
+  body:not(.messages-page) .nav > .wrap,
+  body:not(.messages-page) .nav .wrap {
+    width:100%;
+    max-width:1320px;
+    min-height:76px;
+    margin:0 auto;
+    padding:0;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:nowrap;
+  }
+
+  /* Brand gets a fixed safe lane and may not invade search/nav. */
+  body:not(.messages-page) .nav .logo {
+    flex:0 1 360px;
+    min-width:250px;
+    max-width:360px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  body:not(.messages-page) .nav .logo img {
+    width:38px;
+    height:38px;
+    flex:0 0 38px;
+    object-fit:cover;
+    border-radius:10px;
+  }
+  body:not(.messages-page) .nav .logo-text {
+    min-width:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size:1rem;
+    line-height:1.1;
+  }
+
+  /* Search: force a real horizontal width; this fixes the vertical pill bug. */
+  body:not(.messages-page) .nav .search-box,
+  body:not(.messages-page) .nav .search,
+  body:not(.messages-page) .nav .nav-search,
+  body:not(.messages-page) .nav .search-wrap {
+    position:relative;
+    inset:auto;
+    transform:none;
+    flex:1 1 270px;
+    width:auto;
+    min-width:210px;
+    max-width:330px;
+    height:44px;
+    margin:0;
+    padding:0;
+    display:flex;
+    align-items:center;
+    overflow:visible;
+  }
+  body:not(.messages-page) .nav .search-box input,
+  body:not(.messages-page) .nav .search input,
+  body:not(.messages-page) .nav .nav-search input,
+  body:not(.messages-page) .nav .search-wrap input {
+    display:block;
+    width:100%;
+    min-width:0;
+    height:44px;
+    margin:0;
+    padding:0 42px 0 42px;
+    border:1px solid #d9d0bd;
+    border-radius:999px;
+    background:#fff;
+  }
+  body:not(.messages-page) .nav .search-box > svg:first-of-type,
+  body:not(.messages-page) .nav .search-box .search-icon {
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    width:18px;
+    height:18px;
+    pointer-events:none;
+  }
+  body:not(.messages-page) .nav .search-box > button,
+  body:not(.messages-page) .nav .search-box .camera-btn {
+    position:absolute;
+    right:7px;
+    top:50%;
+    transform:translateY(-50%);
+    width:32px;
+    height:32px;
+    min-width:32px;
+    min-height:32px;
+    padding:0;
+    display:grid;
+    place-items:center;
+    border:0;
+    background:transparent;
+    border-radius:50%;
+  }
+
+  /* Main links get their own lane. */
+  body:not(.messages-page) .nav-links {
+    flex:0 0 auto;
+    min-width:0;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:2px;
+    white-space:nowrap;
+  }
+  body:not(.messages-page) .nav-links > a {
+    flex:0 0 auto;
+    padding:9px 7px;
+    font-size:.75rem;
+    line-height:1.1;
+    border-radius:9px;
+  }
+
+  body:not(.messages-page) .nav .theme-toggle,
+  body:not(.messages-page) .nav .nav-user,
+  body:not(.messages-page) .nav .user-menu-btn {
+    flex:0 0 auto;
+  }
+  body:not(.messages-page) .nav .theme-toggle {
+    width:42px;
+    height:42px;
+    min-width:42px;
+  }
+  body:not(.messages-page) .nav .nav-user,
+  body:not(.messages-page) .nav .user-menu-btn {
+    max-width:130px;
+  }
+  body:not(.messages-page) .nav .nav-cta,
+  body:not(.messages-page) .nav .btn-primary {
+    flex:0 0 auto;
+    min-height:44px;
+    padding:10px 16px;
+    white-space:nowrap;
+    font-size:.77rem;
+  }
+
+  /* Category row independent from header sizing. */
+  body:not(.messages-page) .catbar {
+    min-height:70px;
+    padding:9px 0;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:none;
+  }
+  body:not(.messages-page) .catbar::-webkit-scrollbar { display:none; }
+  body:not(.messages-page) .catbar .wrap,
+  body:not(.messages-page) .catbar-inner {
+    width:max-content;
+    min-width:100%;
+    max-width:none;
+    margin:0;
+    padding:0 16px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+    flex-wrap:nowrap;
+  }
+  body:not(.messages-page) .cat-pill {
+    flex:0 0 auto;
+    min-height:46px;
+    padding:0 15px;
+    white-space:nowrap;
+  }
+  body:not(.messages-page) .cat-pill:empty,
+  body:not(.messages-page) .catbar button:empty,
+  body:not(.messages-page) .catbar a:empty {
+    display:none;
+  }
 }
-@media (min-width:1001px) and (max-width:1280px){
- body:not(.messages-page) .nav .wrap{width:calc(100% - 28px);grid-template-columns:minmax(205px,.9fr) minmax(185px,.68fr) auto;gap:10px}
- body:not(.messages-page) .nav .logo-text{font-size:.9rem}
- body:not(.messages-page) .nav-links{gap:1px}
- body:not(.messages-page) .nav-links>a{padding-inline:5px;font-size:.71rem}
- body:not(.messages-page) .nav-cta,body:not(.messages-page) .nav-links .btn-primary{padding-inline:11px;font-size:.71rem}
+
+/* Laptop widths: hide less-important links before ever collapsing search. */
+@media (min-width:1001px) and (max-width:1220px) {
+  body:not(.messages-page) .nav { padding-inline:12px; }
+  body:not(.messages-page) .nav .wrap { gap:9px; }
+  body:not(.messages-page) .nav .logo {
+    flex-basis:270px;
+    min-width:210px;
+    max-width:270px;
+  }
+  body:not(.messages-page) .nav .logo-text { font-size:.88rem; }
+  body:not(.messages-page) .nav .search-box,
+  body:not(.messages-page) .nav .search,
+  body:not(.messages-page) .nav .nav-search,
+  body:not(.messages-page) .nav .search-wrap {
+    min-width:200px;
+    max-width:260px;
+  }
+  body:not(.messages-page) .nav-links > a {
+    padding-inline:5px;
+    font-size:.69rem;
+  }
+  body:not(.messages-page) .nav .nav-cta,
+  body:not(.messages-page) .nav .btn-primary {
+    padding-inline:11px;
+    font-size:.7rem;
+  }
+}
+
+/* On compact desktop, preserve search + actions and hide secondary textual links. */
+@media (min-width:1001px) and (max-width:1100px) {
+  body:not(.messages-page) .nav-links > a:nth-of-type(n+3) {
+    display:none;
+  }
 }
 
