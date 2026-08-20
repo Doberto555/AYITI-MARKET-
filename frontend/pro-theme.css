@@ -136,3 +136,67 @@ main,.ap-section,.ct-wrap,.legal-wrap{position:relative}
  .seller-hero{border-radius:0!important}.seller-hero-inner{padding-left:18px!important;padding-right:18px!important}
  .acc-tabs{overflow-x:auto!important;scrollbar-width:none}.acc-tab{white-space:nowrap!important}
 }
+
+/* === AYITI MARKET PRO V3 — production polish === */
+:root{--pro-ease:cubic-bezier(.2,.8,.2,1);--pro-ring:0 0 0 4px rgba(185,28,60,.11)}
+body{letter-spacing:-.005em}
+button,a,input,select,textarea{font:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none!important;box-shadow:var(--pro-ring)!important}
+.btn{min-height:42px!important;border-radius:11px!important;font-weight:750!important;letter-spacing:-.01em!important;transition:transform .18s var(--pro-ease),box-shadow .18s var(--pro-ease),background .18s ease!important}
+.btn:active{transform:translateY(1px) scale(.99)!important}
+.card,.stat-card,.acc-card,.review-card{transition:transform .2s var(--pro-ease),box-shadow .2s var(--pro-ease)!important}
+
+/* Admin V3 */
+.admin-wrap{background:linear-gradient(180deg,var(--fon),color-mix(in srgb,var(--fon) 92%,var(--krem) 8%))!important}
+.sidebar{background:color-mix(in srgb,var(--blan) 97%,transparent)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.sidebar-section{letter-spacing:.09em!important;font-size:.68rem!important}
+.sidebar-item{min-height:43px!important;border-left:3px solid transparent!important}
+.sidebar-item.active{box-shadow:inset 0 0 0 1px rgba(185,28,60,.08)!important}
+.main h1,.main h2,.main h3{font-family:var(--body)!important;letter-spacing:-.03em!important}
+.main table tbody tr{transition:background .15s ease!important}
+.main table tbody tr:hover{background:color-mix(in srgb,var(--krem) 55%,transparent)!important}
+.main table th:first-child{border-top-left-radius:13px}.main table th:last-child{border-top-right-radius:13px}
+
+/* Account V3 */
+.acc-card{overflow:hidden!important}
+.acc-tabs{background:color-mix(in srgb,var(--krem) 65%,var(--blan))!important;border:1px solid var(--liy)!important}
+.acc-tab.active{box-shadow:0 3px 10px rgba(20,24,31,.08)!important}
+.profile-section{animation:proFade .22s ease}
+.profile-section hr{border:0!important;border-top:1px solid var(--liy)!important}
+.form-group label{font-weight:700!important;font-size:.88rem!important}
+
+/* Messaging V3 */
+.chat-shell,.messages-wrap,.messages-layout{background:var(--blan)!important}
+.conv-item,.conversation-item{min-height:64px!important}
+.conv-item.active,.conversation-item.active{box-shadow:inset 3px 0 0 var(--wouj)!important}
+.message-bubble,.bubble{line-height:1.48!important;max-width:min(78%,620px)!important}
+.message-input,textarea.message-input,input.message-input{border-radius:14px!important;border:1px solid var(--liy)!important;background:var(--fon)!important}
+
+/* Seller V3 */
+.seller-hero{box-shadow:var(--pro-shadow-md)!important}
+.seller-stats{gap:10px!important}
+.seller-stats>*{border:1px solid var(--liy)!important;background:color-mix(in srgb,var(--blan) 92%,var(--krem))!important}
+.review-card:hover{transform:translateY(-2px)!important;box-shadow:var(--pro-shadow-md)!important}
+
+/* Home/catalog V3 */
+.hero-search,.search-box,.nav-search{box-shadow:0 8px 28px rgba(20,24,31,.07)!important}
+.card img{transition:transform .35s var(--pro-ease)!important}.card:hover img{transform:scale(1.025)}
+.sec-head h2{font-family:var(--body)!important;font-weight:850!important;letter-spacing:-.035em!important}
+
+/* Toast replacement styling for progressive JS migration */
+.pro-toast{position:fixed;right:20px;bottom:24px;z-index:99999;max-width:min(390px,calc(100vw - 32px));padding:13px 16px;border-radius:13px;background:#151820;color:#fff;box-shadow:0 18px 48px rgba(0,0,0,.24);font-weight:650;font-size:.9rem;animation:proToastIn .22s ease}
+@keyframes proToastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes proFade{from{opacity:.55;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+@media(max-width:900px){
+ .main table{display:block!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+ .main table th,.main table td{white-space:nowrap}
+ .seller-stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+ body{padding-bottom:env(safe-area-inset-bottom)}
+ .btn{min-height:44px!important}
+ .card{border-radius:14px!important}
+ .message-bubble,.bubble{max-width:88%!important}
+ .pro-toast{left:16px;right:16px;bottom:calc(18px + env(safe-area-inset-bottom))}
+}
